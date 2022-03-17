@@ -1,4 +1,4 @@
-package cn.idesign.cui.banner
+package cn.idesign.cui.testclient.banner
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
