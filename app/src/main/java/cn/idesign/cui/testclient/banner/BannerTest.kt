@@ -7,29 +7,27 @@ import androidx.compose.material.icons.filled.FirstPage
 import androidx.compose.material.icons.filled.LastPage
 import androidx.compose.material.icons.filled.NavigateBefore
 import androidx.compose.material.icons.filled.NavigateNext
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 import cn.idesign.cui.banner.*
+import cn.idesign.cui.indicator.Indicator
 import kotlinx.coroutines.launch
 import kotlin.math.absoluteValue
 
 @Composable
 fun BannerTest() {
-    val contentPadding = remember {
+    val (contentPadding, onContentPaddingChange) = remember {
         mutableStateOf(0f)
     }
-    val itemSpacing = remember {
+    val (itemSpacing, onItemSpacingChange) = remember {
         mutableStateOf(0f)
     }
 
-    val loop = remember {
-        mutableStateOf(true)
+    val (loop, onLoopChange) = remember {
+        mutableStateOf(false)
     }
     Scaffold(
         topBar = {
@@ -42,27 +40,46 @@ fun BannerTest() {
     ) {
         Column(Modifier.fillMaxSize()) {
             val bannerState = rememberBannerState()
-            Banner(
-                count = 5,
-                state = bannerState,
-                loop = loop.value,
-                verticalAlignment = Alignment.Top,
-                modifier = Modifier
+            val pageCount = 5
+            Box(
+                Modifier
                     .height(300.dp)
-                    .fillMaxWidth(),
-                itemSpacing = itemSpacing.value.dp,
-                contentPadding = PaddingValues(all = contentPadding.value.dp),
-            ) { page ->
-                BannerSampleItem(
-                    page = page,
-                    data = dataList[page],
+                    .fillMaxWidth()
+            ) {
+                Banner(
+                    count = pageCount,
+                    state = bannerState,
+                    loop = loop,
+                    verticalAlignment = Alignment.Top,
+                    modifier = Modifier.matchParentSize(),
+                    itemSpacing = itemSpacing.dp,
+                    contentPadding = PaddingValues(all = contentPadding.dp),
+                ) { page ->
+                    BannerSampleItem(
+                        page = page,
+                        data = dataList[page],
+                        modifier = Modifier
+                            .graphicsLayer {
+                                val offset = calculateCurrentOffsetForPage(page).absoluteValue
+                                scaleInGraphics(offset)
+                                alphaInGraphics(offset)
+                            }
+                            .fillMaxWidth()
+                    )
+                }
+
+                Indicator(
                     modifier = Modifier
-                        .graphicsLayer {
-                            val offset = calculateCurrentOffsetForPage(page).absoluteValue
-                            scaleInGraphics(offset)
-                            alphaInGraphics(offset)
-                        }
-                        .fillMaxWidth()
+                        .align(Alignment.BottomCenter)
+                        .padding(16.dp),
+                    pageCount = pageCount,
+                    scrollPosition = (bannerState.currentPage + bannerState.currentPageOffset)
+                        .coerceIn(
+                            0f,
+                            (pageCount - 1)
+                                .coerceAtLeast(0)
+                                .toFloat()
+                        ),
                 )
             }
 
@@ -70,26 +87,26 @@ fun BannerTest() {
 
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        text = "内容Padding:${Math.round(contentPadding.value)} dp",
+                        text = "内容Padding:${Math.round(contentPadding)} dp",
                         modifier = Modifier.width(150.dp)
                     )
                     Spacer(modifier = Modifier.width(5.dp))
                     Slider(
-                        value = contentPadding.value,
-                        onValueChange = { contentPadding.value = it },
+                        value = contentPadding,
+                        onValueChange = onContentPaddingChange,
                         valueRange = 0f..100f
                     )
                 }
 
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        text = "内容间距:${Math.round(itemSpacing.value)} dp",
+                        text = "内容间距:${Math.round(itemSpacing)} dp",
                         modifier = Modifier.width(150.dp)
                     )
                     Spacer(modifier = Modifier.width(5.dp))
                     Slider(
-                        value = itemSpacing.value,
-                        onValueChange = { itemSpacing.value = it },
+                        value = itemSpacing,
+                        onValueChange = onItemSpacingChange,
                         valueRange = -50f..50f
                     )
                 }
@@ -97,7 +114,7 @@ fun BannerTest() {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(text = "是否循环", modifier = Modifier.width(150.dp))
                     Spacer(modifier = Modifier.width(5.dp))
-                    Switch(checked = loop.value, onCheckedChange = { loop.value = it })
+                    Switch(checked = loop, onCheckedChange = onLoopChange)
                 }
             }
 

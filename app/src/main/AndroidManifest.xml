@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CUI">
         <activity
-            android:name=".MainActivity"
+            android:name="cn.idesign.cui.testclient.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.CUI">
@@ -18,6 +18,28 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="cn.idesign.cui.testclient.banner.BannerActivity"
+            android:exported="true"
+            android:label="Banner示例"
+            android:theme="@style/Theme.CUI">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="cn.idesign.cui.testclient.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="cn.idesign.cui.testclient.indicator.IndicatorActivity"
+            android:exported="true"
+            android:label="Indicator示例"
+            android:theme="@style/Theme.CUI">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="cn.idesign.cui.testclient.SAMPLE_CODE" />
             </intent-filter>
         </activity>
     </application>
