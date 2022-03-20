@@ -60,6 +60,8 @@ fun IndicatorTest() {
                  state = bannerState,
                  verticalAlignment = Alignment.Top,
                  modifier = Modifier.matchParentSize(),
+                 itemSpacing = (-10).dp,
+                 contentPadding = PaddingValues(30.dp)
              ) { page ->
                  BannerSampleItem(
                      page = page,

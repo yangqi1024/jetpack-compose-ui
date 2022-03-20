@@ -28,6 +28,7 @@ fun Indicator(
     indicatorWidth: Dp = 8.dp,
     indicatorHeight: Dp = if(indicatorShape === CircleShape ) indicatorWidth else indicatorWidth/2,
     spacing: Dp = indicatorWidth,
+    mode:IndicatorMode = IndicatorMode.NORMAL
 ) {
     val indicatorWidthPx = LocalDensity.current.run { indicatorWidth.roundToPx() }
     val spacingPx = LocalDensity.current.run { spacing.roundToPx() }
