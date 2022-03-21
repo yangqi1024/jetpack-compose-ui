@@ -1,5 +1,6 @@
 package cn.idesign.cui.testclient.banner
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -7,13 +8,17 @@ import androidx.compose.material.icons.filled.FirstPage
 import androidx.compose.material.icons.filled.LastPage
 import androidx.compose.material.icons.filled.NavigateBefore
 import androidx.compose.material.icons.filled.NavigateNext
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 import cn.idesign.cui.banner.*
 import cn.idesign.cui.indicator.Indicator
+import cn.idesign.cui.indicator.IndicatorMode
 import kotlinx.coroutines.launch
 import kotlin.math.absoluteValue
 
@@ -61,29 +66,26 @@ fun BannerTest() {
                         modifier = Modifier
                             .graphicsLayer {
                                 val offset = calculateCurrentOffsetForPage(page).absoluteValue
+                                Log.d("graphicsLayer", "offset:${offset}")
                                 scaleInGraphics(offset)
                                 alphaInGraphics(offset)
                             }
                             .fillMaxWidth()
                     )
                 }
-
-                Indicator(
-                    modifier = Modifier
-                        .align(Alignment.BottomCenter)
-                        .padding(16.dp),
-                    pageCount = pageCount,
-                    scrollPosition = (bannerState.currentPage + bannerState.currentPageOffset)
-                        .coerceIn(
-                            0f,
-                            (pageCount - 1)
-                                .coerceAtLeast(0)
-                                .toFloat()
-                        ),
-                )
             }
 
-            Column() {
+            Indicator(
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding(16.dp),
+                pageCount = pageCount,
+                currentPage = (bannerState.currentPage - bannerState.initialPage).floorMod(pageCount),
+                indicatorProgress = bannerState.currentPageOffset,
+                mode = IndicatorMode.Smooth
+            )
+
+            Column {
 
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
@@ -120,7 +122,8 @@ fun BannerTest() {
 
             ActionsRow(
                 bannerState = bannerState,
-                modifier = Modifier.align(Alignment.CenterHorizontally)
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+                        infiniteLoop = loop,
             )
         }
 
@@ -162,7 +165,7 @@ internal fun ActionsRow(
         }
 
         IconButton(
-            enabled = infiniteLoop || bannerState.currentPage < bannerState.pageCount - 1,
+            enabled = infiniteLoop || bannerState.currentPage < bannerState.realPageCount - 1,
             onClick = {
                 scope.launch {
                     bannerState.animateScrollToPage(bannerState.currentPage + 1)
@@ -173,10 +176,10 @@ internal fun ActionsRow(
         }
 
         IconButton(
-            enabled = infiniteLoop.not() && bannerState.currentPage < bannerState.pageCount - 1,
+            enabled = infiniteLoop.not() && bannerState.currentPage < bannerState.realPageCount - 1,
             onClick = {
                 scope.launch {
-                    bannerState.animateScrollToPage(bannerState.pageCount - 1)
+                    bannerState.animateScrollToPage(bannerState.realPageCount - 1)
                 }
             }
         ) {

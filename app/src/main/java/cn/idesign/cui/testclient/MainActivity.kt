@@ -34,42 +34,52 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CUITheme {
-                Surface {
-                    val list = getData(intent.getStringExtra(EXTRA_PATH))
-                    Log.d("MainActivity","list:${list}")
-                    LazyVerticalGrid(
-                        columns = GridCells.Fixed(2),
-                        // content padding
-                        contentPadding = PaddingValues(
-                            start = 12.dp,
-                            top = 16.dp,
-                            end = 12.dp,
-                            bottom = 16.dp
-                        ),
-                        content = {
-                            items(list.size) { index ->
-                                Card(
-                                    modifier = Modifier
-                                        .padding(4.dp)
-                                        .fillMaxWidth(),
-                                    elevation = 8.dp,
-                                    onClick = {
-                                        val intent =   list[index].get("intent") as Intent
-                                        startActivity(intent)
+                Scaffold(
+                    topBar = {
+                        TopAppBar(
+                            title = { Text("Compose UI Design") },
+                            backgroundColor = MaterialTheme.colors.surface,
+                        )
+                    },
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    Surface {
+                        val list = getData(intent.getStringExtra(EXTRA_PATH))
+                        Log.d("MainActivity", "list:${list}")
+                        LazyVerticalGrid(
+                            columns = GridCells.Fixed(2),
+                            // content padding
+                            contentPadding = PaddingValues(
+                                start = 12.dp,
+                                top = 16.dp,
+                                end = 12.dp,
+                                bottom = 16.dp
+                            ),
+                            content = {
+                                items(list.size) { index ->
+                                    Card(
+                                        modifier = Modifier
+                                            .padding(4.dp)
+                                            .fillMaxWidth(),
+                                        elevation = 8.dp,
+                                        onClick = {
+                                            val intent = list[index].get("intent") as Intent
+                                            startActivity(intent)
+                                        }
+                                    ) {
+                                        Text(
+                                            text = list[index].get("title").toString(),
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 18.sp,
+                                            color = MaterialTheme.colors.primary,
+                                            textAlign = TextAlign.Center,
+                                            modifier = Modifier.padding(16.dp)
+                                        )
                                     }
-                                ) {
-                                    Text(
-                                        text = list[index].get("title").toString(),
-                                        fontWeight = FontWeight.Bold,
-                                        fontSize = 18.sp,
-                                        color = MaterialTheme.colors.primary,
-                                        textAlign = TextAlign.Center,
-                                        modifier = Modifier.padding(16.dp)
-                                    )
                                 }
                             }
-                        }
-                    )
+                        )
+                    }
                 }
             }
         }

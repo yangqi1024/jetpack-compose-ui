@@ -3,10 +3,7 @@ package cn.idesign.cui.banner
 import androidx.annotation.FloatRange
 import androidx.annotation.IntRange
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.Stable
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.listSaver
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -40,11 +37,13 @@ fun Banner(
 
     val pagerState = rememberPagerState(initialPage = startIndex)
 
-    val bannerScope = remember(pagerState, startIndex, count) {
-        BannerScopeImpl(pagerState, startIndex, count)
+    val bannerScope = remember(state, startIndex, count) {
+        state.pageState = pagerState
+        state.showPageCount = count
+        state.initialPage = startIndex
+        BannerScopeImpl(state)
     }
 
-    state.pageState = pagerState
     LaunchedEffect(loop) {
         pagerState.scrollToPage(startIndex)
     }
@@ -89,19 +88,22 @@ sealed class BannerDirection {
 
 @Stable
 interface BannerScope {
-
     val currentPage: Int
     val currentPageOffset: Float
     val initialPage: Int
-    val count: Int
+    val showPageCount: Int
 }
 
 @ExperimentalPagerApi
 private class BannerScopeImpl(
-    private val state: PagerState, override val initialPage: Int, override val count: Int,
+    private val state: BannerState,
 ) : BannerScope {
     override val currentPage: Int get() = state.currentPage
     override val currentPageOffset: Float get() = state.currentPageOffset
+    override val initialPage: Int
+        get() = state.initialPage
+    override val showPageCount: Int
+        get() = state.showPageCount
 }
 
 @Composable
@@ -114,11 +116,17 @@ fun rememberBannerState(
 }
 
 class BannerState(
-    @IntRange(from = 0) val initialPage: Int = 0,
+    @IntRange(from = 0) var initialPage: Int = 0,
 ) {
 
     @OptIn(ExperimentalPagerApi::class)
     internal lateinit var pageState: PagerState
+
+    private var _pageCount: Int by mutableStateOf(0)
+
+    @OptIn(ExperimentalPagerApi::class)
+    val realPageCount: Int
+        get() = pageState.pageCount
 
     @OptIn(ExperimentalPagerApi::class)
     val currentPage: Int
@@ -128,9 +136,14 @@ class BannerState(
     val currentPageOffset: Float
         get() = pageState.currentPageOffset
 
-    @OptIn(ExperimentalPagerApi::class)
-    val pageCount: Int
-        get() = pageState.pageCount
+    @get:IntRange(from = 0)
+    var showPageCount: Int
+        get() = _pageCount
+        internal set(value) {
+            if (value != _pageCount) {
+                _pageCount = value
+            }
+        }
 
     @OptIn(ExperimentalPagerApi::class)
     suspend fun scrollToPage(
@@ -168,10 +181,10 @@ class BannerState(
 }
 
 fun BannerScope.calculateCurrentOffsetForPage(page: Int): Float {
-    return abs(currentPage - initialPage - page) % count + currentPageOffset
+    return abs(currentPage - initialPage - page) % showPageCount + currentPageOffset
 }
 
-private fun Int.floorMod(other: Int): Int = when (other) {
+fun Int.floorMod(other: Int): Int = when (other) {
 
     0 -> this
     else -> this - floorDiv(other) * other
