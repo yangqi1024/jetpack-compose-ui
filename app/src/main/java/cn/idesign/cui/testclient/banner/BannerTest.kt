@@ -37,7 +37,7 @@ fun BannerTest() {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Banner实例") },
+                title = { Text("Banner示例") },
                 backgroundColor = MaterialTheme.colors.surface,
             )
         },

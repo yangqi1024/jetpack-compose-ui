@@ -58,7 +58,7 @@ fun IndicatorTest() {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Banner实例") },
+                title = { Text("Indicator示例") },
                 backgroundColor = MaterialTheme.colors.surface,
             )
         },
