@@ -5,6 +5,7 @@ Compose UI
 Name | Demo
 --- | ---
 Banner| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/Mar-23-2022%2009-57-11.gif" width="46%">
+Indicator| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/indicator.gif" width="46%">
 
 
 ## Thanks
