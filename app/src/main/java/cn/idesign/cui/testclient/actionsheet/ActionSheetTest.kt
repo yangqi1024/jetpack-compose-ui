@@ -141,18 +141,18 @@ private fun Simple(
         state = actionSheetState,
         actions = arrayOf(
             Action(
-                text = "Item 1",
+                text = "Item 0",
 
                 ),
             Action(
-                text = "Item 2",
+                text = "Item 1",
             ),
         ),
         onItemClick = {
             Toast.makeText(
                 context,
                 "Item:${it}",
-                Toast.LENGTH_LONG
+                Toast.LENGTH_SHORT
             ).show()
         }
     )
@@ -167,14 +167,14 @@ private fun GravityLeft(
         state = actionSheetState,
         actions = arrayOf(
             Action(
-                text = "Item 1",
+                text = "Item 0",
                 horizontalAlignment = Alignment.Start,
                 modifier = Modifier
                     .padding(start = 10.dp)
 
             ),
             Action(
-                text = "Item 2",
+                text = "Item 1",
                 horizontalAlignment = Alignment.Start,
                 modifier = Modifier
                     .padding(start = 10.dp)
@@ -185,7 +185,7 @@ private fun GravityLeft(
             Toast.makeText(
                 context,
                 "Item:${it}",
-                Toast.LENGTH_LONG
+                Toast.LENGTH_SHORT
             ).show()
         }
     )
@@ -201,17 +201,17 @@ private fun WithTitle(
         state = actionSheetState,
         actions = arrayOf(
             Action(
-                text = "Item 1",
+                text = "Item 0",
             ),
             Action(
-                text = "Item 2",
+                text = "Item 1",
             ),
         ),
         onItemClick = {
             Toast.makeText(
                 context,
                 "Item:${it}",
-                Toast.LENGTH_LONG
+                Toast.LENGTH_SHORT
             ).show()
         }
     )
@@ -227,17 +227,17 @@ private fun CancelTitle(
         state = actionSheetState,
         actions = arrayOf(
             Action(
-                text = "Item 1",
+                text = "Item 0",
             ),
             Action(
-                text = "Item 2",
+                text = "Item 1",
             ),
         ),
         onItemClick = {
             Toast.makeText(
                 context,
                 "Item:${it}",
-                Toast.LENGTH_LONG
+                Toast.LENGTH_SHORT
             ).show()
         }
     )
@@ -253,19 +253,19 @@ private fun DescriptionSimple(
         state = actionSheetState,
         actions = arrayOf(
             Action(
-                text = "Item 1",
-                secondaryText = "这是Item 1的描述",
+                text = "Item 0",
+                secondaryText = "这是Item 0的描述",
             ),
             Action(
-                text = "Item 2",
-                secondaryText = "这是Item 2的描述",
+                text = "Item 1",
+                secondaryText = "这是Item 1的描述",
             ),
         ),
         onItemClick = {
             Toast.makeText(
                 context,
                 "Item:${it}",
-                Toast.LENGTH_LONG
+                Toast.LENGTH_SHORT
             ).show()
         }
     )
@@ -281,13 +281,13 @@ private fun ColorSimple(
         state = actionSheetState,
         actions = arrayOf(
             Action(
-                text = "Item 1",
-                secondaryText = "这是Item 1的描述",
+                text = "Item 0",
+                secondaryText = "这是Item 0的描述",
                 textColor = Color.Magenta,
             ),
             Action(
-                text = "Item 2",
-                secondaryText = "这是Item 2的描述",
+                text = "Item 1",
+                secondaryText = "这是Item 1的描述",
 
                 secondaryTextColor = Color.Cyan
             ),
@@ -296,7 +296,7 @@ private fun ColorSimple(
             Toast.makeText(
                 context,
                 "Item:${it}",
-                Toast.LENGTH_LONG
+                Toast.LENGTH_SHORT
             ).show()
         }
     )
