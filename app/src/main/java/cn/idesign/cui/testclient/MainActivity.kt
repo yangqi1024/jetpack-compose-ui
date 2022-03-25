@@ -12,19 +12,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cn.idesign.cui.testclient.banner.BannerTest
-import cn.idesign.cui.testclient.ui.theme.CUITheme
+import cn.idesign.cui.testclient.ui.theme.CUITestTheme
 import java.text.Collator
 import java.util.*
 
@@ -33,12 +31,15 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            CUITheme {
+            CUITestTheme {
                 Scaffold(
                     topBar = {
                         TopAppBar(
-                            title = { Text("Compose UI Design") },
-                            backgroundColor = MaterialTheme.colors.surface,
+                            title = { Text(
+                                text ="Compose UI Design",
+                                color = MaterialTheme.colors.onPrimary
+                            ) },
+                            backgroundColor = MaterialTheme.colors.primary,
                         )
                     },
                     modifier = Modifier.fillMaxSize()
@@ -70,10 +71,10 @@ class MainActivity : ComponentActivity() {
                                         Text(
                                             text = list[index].get("title").toString(),
                                             fontWeight = FontWeight.Bold,
-                                            fontSize = 18.sp,
-                                            color = MaterialTheme.colors.primary,
+                                            fontSize = 14.sp,
+                                            color = MaterialTheme.colors.onSurface,
                                             textAlign = TextAlign.Center,
-                                            modifier = Modifier.padding(16.dp)
+                                            modifier = Modifier.padding(horizontal = 8.dp,vertical = 16.dp)
                                         )
                                     }
                                 }
@@ -179,7 +180,7 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    CUITheme {
+    CUITestTheme {
         Surface(
             modifier = Modifier
                 .fillMaxSize()

@@ -162,18 +162,13 @@ class BannerState(
     }
 
     companion object {
-        /**
-         * The default [Saver] implementation for [PagerState].
-         */
-        val Saver: Saver<BannerState, *> = listSaver(
+        val Saver: Saver<BannerState, *> = Saver(
             save = {
-                listOf<Any>(
-                    it.initialPage,
-                )
+                it.initialPage
             },
             restore = {
                 BannerState(
-                    initialPage = it[0] as Int,
+                    initialPage = it as Int,
                 )
             }
         )

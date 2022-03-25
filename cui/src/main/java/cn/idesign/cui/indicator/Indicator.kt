@@ -24,13 +24,10 @@ fun Indicator(
     activeColor: Color = LocalContentColor.current.copy(alpha = LocalContentAlpha.current),
     inactiveColor: Color = activeColor.copy(ContentAlpha.disabled),
     indicatorShape: Shape = CircleShape,
-
     inactiveIndicatorWidth: Dp = 8.dp,
     inactiveIndicatorHeight: Dp = if (indicatorShape == CircleShape) inactiveIndicatorWidth else inactiveIndicatorWidth / 2,
-
     activeIndicatorWidth: Dp = inactiveIndicatorWidth,
     activeIndicatorHeight: Dp = if (indicatorShape == CircleShape) activeIndicatorWidth else activeIndicatorWidth / 2,
-
     spacing: Dp = inactiveIndicatorWidth,
     mode: IndicatorMode = IndicatorMode.Normal,
     scale: Float = 1.2f,

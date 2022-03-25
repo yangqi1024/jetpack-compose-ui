@@ -1,4 +1,4 @@
-package cn.idesign.cui.testclient.banner
+package cn.idesign.cui.testclient.actionsheet
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -6,12 +6,13 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.ui.Modifier
 import cn.idesign.cui.testclient.ui.theme.CUITestTheme
 
-class BannerActivity : ComponentActivity() {
+class ActionSheetActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -21,7 +22,7 @@ class BannerActivity : ComponentActivity() {
                         TopAppBar(
                             title = {
                                 Text(
-                                    text = "Banner示例",
+                                    text = "ActionSheet示例",
                                     color = MaterialTheme.colors.onPrimary
                                 )
                             },
@@ -30,7 +31,7 @@ class BannerActivity : ComponentActivity() {
                     },
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    BannerTest()
+                        ActionSheetTest()
                 }
             }
         }

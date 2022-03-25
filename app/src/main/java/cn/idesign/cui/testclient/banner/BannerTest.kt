@@ -34,101 +34,90 @@ fun BannerTest() {
     val (loop, onLoopChange) = remember {
         mutableStateOf(false)
     }
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Banner示例") },
-                backgroundColor = MaterialTheme.colors.surface,
-            )
-        },
-        modifier = Modifier.fillMaxSize()
-    ) {
-        Column(Modifier.fillMaxSize()) {
-            val bannerState = rememberBannerState()
-            val pageCount = 5
-            Box(
-                Modifier
-                    .height(300.dp)
-                    .fillMaxWidth()
-            ) {
-                Banner(
-                    count = pageCount,
-                    state = bannerState,
-                    loop = loop,
-                    verticalAlignment = Alignment.Top,
-                    modifier = Modifier.matchParentSize(),
-                    itemSpacing = itemSpacing.dp,
-                    contentPadding = PaddingValues(all = contentPadding.dp),
-                ) { page ->
-                    BannerSampleItem(
-                        page = page,
-                        data = dataList[page],
-                        modifier = Modifier
-                            .graphicsLayer {
-                                val offset = calculateCurrentOffsetForPage(page).absoluteValue
-                                Log.d("graphicsLayer", "offset:${offset}")
-                                scaleInGraphics(offset)
-                                alphaInGraphics(offset)
-                            }
-                            .fillMaxWidth()
-                    )
-                }
+
+    Column(Modifier.fillMaxSize()) {
+        val bannerState = rememberBannerState()
+        val pageCount = 5
+        Box(
+            Modifier
+                .height(300.dp)
+                .fillMaxWidth()
+        ) {
+            Banner(
+                count = pageCount,
+                state = bannerState,
+                loop = loop,
+                verticalAlignment = Alignment.Top,
+                modifier = Modifier.matchParentSize(),
+                itemSpacing = itemSpacing.dp,
+                contentPadding = PaddingValues(all = contentPadding.dp),
+            ) { page ->
+                BannerSampleItem(
+                    page = page,
+                    data = dataList[page],
+                    modifier = Modifier
+                        .graphicsLayer {
+                            val offset = calculateCurrentOffsetForPage(page).absoluteValue
+                            Log.d("graphicsLayer", "offset:${offset}")
+                            scaleInGraphics(offset)
+                            alphaInGraphics(offset)
+                        }
+                        .fillMaxWidth()
+                )
             }
-
-            Indicator(
-                modifier = Modifier
-                    .align(Alignment.CenterHorizontally)
-                    .padding(16.dp),
-                pageCount = pageCount,
-                currentPage = (bannerState.currentPage - bannerState.initialPage).floorMod(pageCount),
-                indicatorProgress = bannerState.currentPageOffset,
-                mode = IndicatorMode.Smooth
-            )
-
-            Column {
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = "内容Padding:${Math.round(contentPadding)} dp",
-                        modifier = Modifier.width(150.dp)
-                    )
-                    Spacer(modifier = Modifier.width(5.dp))
-                    Slider(
-                        value = contentPadding,
-                        onValueChange = onContentPaddingChange,
-                        valueRange = 0f..100f
-                    )
-                }
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = "内容间距:${Math.round(itemSpacing)} dp",
-                        modifier = Modifier.width(150.dp)
-                    )
-                    Spacer(modifier = Modifier.width(5.dp))
-                    Slider(
-                        value = itemSpacing,
-                        onValueChange = onItemSpacingChange,
-                        valueRange = -50f..50f
-                    )
-                }
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "是否循环", modifier = Modifier.width(150.dp))
-                    Spacer(modifier = Modifier.width(5.dp))
-                    Switch(checked = loop, onCheckedChange = onLoopChange)
-                }
-            }
-
-            ActionsRow(
-                bannerState = bannerState,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-                        infiniteLoop = loop,
-            )
         }
 
-    }
+        Indicator(
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(16.dp),
+            pageCount = pageCount,
+            currentPage = (bannerState.currentPage - bannerState.initialPage).floorMod(pageCount),
+            indicatorProgress = bannerState.currentPageOffset,
+            mode = IndicatorMode.Smooth
+        )
 
+        Column {
+
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    text = "内容Padding:${Math.round(contentPadding)} dp",
+                    modifier = Modifier.width(150.dp)
+                )
+                Spacer(modifier = Modifier.width(5.dp))
+                Slider(
+                    value = contentPadding,
+                    onValueChange = onContentPaddingChange,
+                    valueRange = 0f..100f
+                )
+            }
+
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    text = "内容间距:${Math.round(itemSpacing)} dp",
+                    modifier = Modifier.width(150.dp)
+                )
+                Spacer(modifier = Modifier.width(5.dp))
+                Slider(
+                    value = itemSpacing,
+                    onValueChange = onItemSpacingChange,
+                    valueRange = -50f..50f
+                )
+            }
+
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(text = "是否循环", modifier = Modifier.width(150.dp))
+                Spacer(modifier = Modifier.width(5.dp))
+                Switch(checked = loop, onCheckedChange = onLoopChange)
+            }
+        }
+
+        ActionsRow(
+            bannerState = bannerState,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            infiniteLoop = loop,
+        )
+    }
 
 }
 

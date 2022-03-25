@@ -30,7 +30,6 @@ import cn.idesign.cui.indicator.IndicatorMode
 import cn.idesign.cui.testclient.banner.BannerSampleItem
 import cn.idesign.cui.testclient.banner.dataList
 import kotlinx.coroutines.launch
-import kotlin.math.abs
 import kotlin.math.absoluteValue
 
 @Composable
@@ -55,15 +54,7 @@ fun IndicatorTest() {
         Pair("Smooth", IndicatorMode.Smooth),
         Pair("Worm", IndicatorMode.Worm),
     )
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Indicator示例") },
-                backgroundColor = MaterialTheme.colors.surface,
-            )
-        },
-        modifier = Modifier.fillMaxSize()
-    ) {
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -174,8 +165,6 @@ fun IndicatorTest() {
             )
         }
     }
-
-}
 
 
 @Composable
