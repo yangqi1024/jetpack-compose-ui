@@ -23,11 +23,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import cn.idesign.cui.actionsheet.Action
-import cn.idesign.cui.actionsheet.ActionSheet
-import cn.idesign.cui.actionsheet.ActionSheetState
-import cn.idesign.cui.actionsheet.rememberActionSheetState
+import cn.idesign.cui.actionsheet.*
+import cn.idesign.cui.testclient.R
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -41,6 +40,7 @@ fun ActionSheetTest() {
         val cancelState = rememberActionSheetState()
         val descriptionState = rememberActionSheetState()
         val colorState = rememberActionSheetState()
+        val gridState = rememberActionSheetState()
         val scope = rememberCoroutineScope()
         Column(
             modifier = Modifier
@@ -122,6 +122,19 @@ fun ActionSheetTest() {
                     }
 
             )
+            Divider()
+            ListItem(
+                text = { Text("Gird分享") },
+                modifier = Modifier
+                    .height(50.dp)
+                    .background(MaterialTheme.colors.background)
+                    .clickable {
+                        scope.launch {
+                            gridState.show()
+                        }
+                    }
+
+            )
         }
 
         Simple(simpleState, context)
@@ -130,6 +143,7 @@ fun ActionSheetTest() {
         CancelTitle(cancelState, context)
         DescriptionSimple(descriptionState, context)
         ColorSimple(colorState, context)
+        GridSimple(gridState, context)
     }
 
 @Composable
@@ -296,6 +310,32 @@ private fun ColorSimple(
             Toast.makeText(
                 context,
                 "Item:${it}",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    )
+}
+
+@Composable
+private fun GridSimple(
+    actionSheetState: ActionSheetState,
+    context: Context
+) {
+    GridSheet(
+        state = actionSheetState,
+        firstLine = arrayOf(
+            GridSheetItem(painterResource(id = cn.idesign.cui.R.drawable.icon_more_operation_share_friend),"微信好友"),
+            GridSheetItem(painterResource(id = cn.idesign.cui.R.drawable.icon_more_operation_share_moment),"朋友圈"),
+            GridSheetItem(painterResource(id = cn.idesign.cui.R.drawable.icon_more_operation_share_weibo),"微博"),
+            GridSheetItem(painterResource(id = cn.idesign.cui.R.drawable.icon_more_operation_share_chat),"私信"),
+        ),
+        secondLine = arrayOf(
+            GridSheetItem(painterResource(id = cn.idesign.cui.R.drawable.icon_more_operation_save),"保存本地"),
+        ),
+        onItemClick = {
+            Toast.makeText(
+                context,
+                "Item:${it.title}",
                 Toast.LENGTH_SHORT
             ).show()
         }
