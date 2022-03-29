@@ -6,17 +6,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Divider
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ListItem
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -34,117 +30,117 @@ import kotlinx.coroutines.launch
 fun ActionSheetTest() {
     val context = LocalContext.current
 
-        val simpleState = rememberActionSheetState()
-        val leftState = rememberActionSheetState()
-        val titleState = rememberActionSheetState()
-        val cancelState = rememberActionSheetState()
-        val descriptionState = rememberActionSheetState()
-        val colorState = rememberActionSheetState()
-        val gridState = rememberActionSheetState()
-        val scope = rememberCoroutineScope()
-        Column(
+    val simpleState = rememberActionSheetState()
+    val leftState = rememberActionSheetState()
+    val titleState = rememberActionSheetState()
+    val cancelState = rememberActionSheetState()
+    val descriptionState = rememberActionSheetState()
+    val colorState = rememberActionSheetState()
+    val gridState = rememberActionSheetState()
+    val scope = rememberCoroutineScope()
+    Column(
+        modifier = Modifier
+            .fillMaxSize(),
+    ) {
+        ListItem(
+            text = { Text("基本用法") },
             modifier = Modifier
-                .fillMaxSize(),
-        ) {
-            ListItem(
-                text = { Text("基本用法") },
-                modifier = Modifier
-                    .height(50.dp)
-                    .background(MaterialTheme.colors.background)
-                    .clickable {
-                        scope.launch {
-                            simpleState.show()
-                        }
+                .height(50.dp)
+                .background(MaterialTheme.colors.background)
+                .clickable {
+                    scope.launch {
+                        simpleState.show()
                     }
-            )
-            Divider()
-            ListItem(
-                text = { Text("文本居左") },
-                modifier = Modifier
-                    .height(50.dp)
-                    .background(MaterialTheme.colors.background)
-                    .clickable {
-                        scope.launch {
-                            leftState.show()
-                        }
+                }
+        )
+        Divider()
+        ListItem(
+            text = { Text("文本居左") },
+            modifier = Modifier
+                .height(50.dp)
+                .background(MaterialTheme.colors.background)
+                .clickable {
+                    scope.launch {
+                        leftState.show()
                     }
+                }
 
-            )
-            Divider()
-            ListItem(
-                text = { Text("包含标题") },
-                modifier = Modifier
-                    .height(50.dp)
-                    .background(MaterialTheme.colors.background)
-                    .clickable {
-                        scope.launch {
-                            titleState.show()
-                        }
+        )
+        Divider()
+        ListItem(
+            text = { Text("包含标题") },
+            modifier = Modifier
+                .height(50.dp)
+                .background(MaterialTheme.colors.background)
+                .clickable {
+                    scope.launch {
+                        titleState.show()
                     }
+                }
 
-            )
-            Divider()
-            ListItem(
-                text = { Text("包含取消按钮") },
-                modifier = Modifier
-                    .height(50.dp)
-                    .background(MaterialTheme.colors.background)
-                    .clickable {
-                        scope.launch {
-                            cancelState.show()
-                        }
+        )
+        Divider()
+        ListItem(
+            text = { Text("包含取消按钮") },
+            modifier = Modifier
+                .height(50.dp)
+                .background(MaterialTheme.colors.background)
+                .clickable {
+                    scope.launch {
+                        cancelState.show()
                     }
+                }
 
-            )
-            Divider()
-            ListItem(
-                text = { Text("包含描述") },
-                modifier = Modifier
-                    .height(50.dp)
-                    .background(MaterialTheme.colors.background)
-                    .clickable {
-                        scope.launch {
-                            descriptionState.show()
-                        }
+        )
+        Divider()
+        ListItem(
+            text = { Text("包含描述") },
+            modifier = Modifier
+                .height(50.dp)
+                .background(MaterialTheme.colors.background)
+                .clickable {
+                    scope.launch {
+                        descriptionState.show()
                     }
+                }
 
-            )
-            Divider()
-            ListItem(
-                text = { Text("自定义颜色") },
-                modifier = Modifier
-                    .height(50.dp)
-                    .background(MaterialTheme.colors.background)
-                    .clickable {
-                        scope.launch {
-                            colorState.show()
-                        }
+        )
+        Divider()
+        ListItem(
+            text = { Text("自定义颜色") },
+            modifier = Modifier
+                .height(50.dp)
+                .background(MaterialTheme.colors.background)
+                .clickable {
+                    scope.launch {
+                        colorState.show()
                     }
+                }
 
-            )
-            Divider()
-            ListItem(
-                text = { Text("Gird分享") },
-                modifier = Modifier
-                    .height(50.dp)
-                    .background(MaterialTheme.colors.background)
-                    .clickable {
-                        scope.launch {
-                            gridState.show()
-                        }
+        )
+        Divider()
+        ListItem(
+            text = { Text("Gird分享") },
+            modifier = Modifier
+                .height(50.dp)
+                .background(MaterialTheme.colors.background)
+                .clickable {
+                    scope.launch {
+                        gridState.show()
                     }
+                }
 
-            )
-        }
-
-        Simple(simpleState, context)
-        GravityLeft(leftState, context)
-        WithTitle(titleState, context)
-        CancelTitle(cancelState, context)
-        DescriptionSimple(descriptionState, context)
-        ColorSimple(colorState, context)
-        GridSimple(gridState, context)
+        )
     }
+
+    Simple(simpleState, context)
+    GravityLeft(leftState, context)
+    WithTitle(titleState, context)
+    CancelTitle(cancelState, context)
+    DescriptionSimple(descriptionState, context)
+    ColorSimple(colorState, context)
+    GridSimple(gridState, context)
+}
 
 @Composable
 private fun Simple(
@@ -324,18 +320,24 @@ private fun GridSimple(
     GridSheet(
         state = actionSheetState,
         firstLine = arrayOf(
-            GridSheetItem(painterResource(id = cn.idesign.cui.R.drawable.icon_more_operation_share_friend),"微信好友"),
-            GridSheetItem(painterResource(id = cn.idesign.cui.R.drawable.icon_more_operation_share_moment),"朋友圈"),
-            GridSheetItem(painterResource(id = cn.idesign.cui.R.drawable.icon_more_operation_share_weibo),"微博"),
-            GridSheetItem(painterResource(id = cn.idesign.cui.R.drawable.icon_more_operation_share_chat),"私信"),
+            GridSheetItem(
+                painterResource(id = R.drawable.icon_more_operation_share_friend),
+                "微信好友"
+            ),
+            GridSheetItem(painterResource(id = R.drawable.icon_more_operation_share_moment), "朋友圈"),
+            GridSheetItem(painterResource(id = R.drawable.icon_more_operation_share_weibo), "微博"),
+            GridSheetItem(painterResource(id = R.drawable.icon_more_operation_share_chat), "私信"),
         ),
         secondLine = arrayOf(
-            GridSheetItem(painterResource(id = cn.idesign.cui.R.drawable.icon_more_operation_save),"保存本地"),
+            GridSheetItem(painterResource(id = R.drawable.icon_share_download), "保存本地"),
+            GridSheetItem(painterResource(id = R.drawable.icon_share_report), "举报"),
+            GridSheetItem(painterResource(id = R.drawable.icon_share_copylink), "复制链接"),
+            GridSheetItem(painterResource(id = R.drawable.icon_share_dislike), "不感兴趣"),
         ),
         onItemClick = {
             Toast.makeText(
                 context,
-                "Item:${it.title}",
+                "Item:${it.text}",
                 Toast.LENGTH_SHORT
             ).show()
         }
