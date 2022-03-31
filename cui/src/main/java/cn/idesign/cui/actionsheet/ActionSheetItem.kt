@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.material.ContentAlpha
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -51,7 +52,7 @@ fun ActionSheetItem(
                 text = it,
                 color = textColor.let { color ->
                     if (color.isUnspecified) {
-                        MaterialTheme.colors.onSurface.copy(alpha = 0.87f)
+                        MaterialTheme.colors.onSurface.copy(alpha = ContentAlpha.high)
                     }else{
                         color
                     }
@@ -65,7 +66,7 @@ fun ActionSheetItem(
                 text = it,
                 color = secondaryTextColor.let { color ->
                     if (color.isUnspecified) {
-                        MaterialTheme.colors.onSurface.copy(alpha = 0.38f)
+                        MaterialTheme.colors.onSurface.copy(alpha = ContentAlpha.disabled)
                     }else{
                         color
                     }

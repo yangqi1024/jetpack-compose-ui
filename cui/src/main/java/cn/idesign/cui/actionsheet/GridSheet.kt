@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.ContentAlpha
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
@@ -49,7 +50,7 @@ fun GridSheet(
     secondLineImageModifier: Modifier = Modifier
         .size(48.dp)
         .clip(CircleShape)
-        .background(color = Color.Gray.copy(alpha = 0.3f)),
+        .background(color = Color.Gray.copy(alpha = ContentAlpha.disabled)),
     textColor: Color = Color.Unspecified,
     onItemClick: ((item: GridSheetItem) -> Unit)? = null
 ) {
@@ -69,7 +70,7 @@ fun GridSheet(
                     modifier = Modifier
                         .clip(CircleShape)
                         .size(25.dp)
-                        .background(color = Color.Gray.copy(alpha = 0.3f)),
+                        .background(color = Color.Gray.copy(alpha = ContentAlpha.disabled)),
                     onClick = {
                         scope.launch {
                             state.hide()
@@ -107,7 +108,7 @@ fun GridSheet(
                                 style = textTextStyle,
                                 color = textColor.let { color ->
                                     if (color.isUnspecified) {
-                                        MaterialTheme.colors.onSurface.copy(alpha = 0.87f)
+                                        MaterialTheme.colors.onSurface.copy(alpha = ContentAlpha.high)
                                     } else {
                                         color
                                     }
@@ -144,7 +145,7 @@ fun GridSheet(
                                 style = textTextStyle,
                                 color = textColor.let { color ->
                                     if (color.isUnspecified) {
-                                        MaterialTheme.colors.onSurface.copy(alpha = 0.87f)
+                                        MaterialTheme.colors.onSurface.copy(alpha = ContentAlpha.high)
                                     } else {
                                         color
                                     }

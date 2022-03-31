@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id("com.google.devtools.ksp").version("1.6.10-1.0.4")
 }
 
 android {
@@ -55,9 +56,10 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
     implementation 'androidx.activity:activity-compose:1.4.0'
 
+    implementation 'com.squareup.moshi:moshi:1.13.0'
+    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.13.0")
+
     implementation project(path: ':cui')
-
-
 
 
     testImplementation 'junit:junit:4.13.2'
