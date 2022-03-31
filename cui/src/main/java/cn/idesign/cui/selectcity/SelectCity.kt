@@ -6,11 +6,8 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -21,17 +18,10 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.Divider
-import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -45,6 +35,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import cn.idesign.cui.testclient.searchbar.SearchBar
 import com.google.accompanist.flowlayout.FlowRow
 import com.google.accompanist.flowlayout.SizeMode
 import kotlinx.coroutines.CoroutineScope
@@ -69,7 +60,7 @@ fun SelectCity(
         derivedStateOf { cityList.filter { it.city.contains(searchValue) } }
     }
     Column {
-        SearchBar(searchValue) { searchValue = it }
+        SearchBar(value = searchValue, modifier = Modifier.padding(10.dp)) { searchValue = it }
         if (searchValue.isBlank()) {
             CityList(cityList, hotCityList, scope, itemHeight, onSelect)
         } else {
@@ -85,6 +76,24 @@ fun SearchList(
     onSelect: ((city: CityModel) -> Unit)? = null
 ) {
     LazyColumn {
+        if (searchList.isEmpty()) {
+            item {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(itemHeight)
+                        .padding(start = 15.dp)
+                ) {
+                    Divider()
+                    Text(
+                        text = "未找到相关信息，请修改后重试",
+                        modifier = Modifier
+                            .wrapContentHeight(Alignment.CenterVertically)
+                            .weight(1f),
+                    )
+                }
+            }
+        }
         items(searchList) { item ->
             Column(
                 modifier = Modifier
@@ -259,7 +268,7 @@ fun HotCity(hotCityList: List<CityModel>, onSelect: ((city: CityModel) -> Unit)?
                         }
                         .background(
                             color = MaterialTheme.colors.onSurface.copy(0.05f),
-                            shape = RoundedCornerShape(4.dp)
+                            shape = MaterialTheme.shapes.small
                         ),
                     contentAlignment = Alignment.Center
                 ) {
@@ -276,72 +285,73 @@ fun HotCity(hotCityList: List<CityModel>, onSelect: ((city: CityModel) -> Unit)?
 }
 
 
-@Composable
-fun SearchBar(searchValue: String, onValueChange: (value: String) -> Unit) {
-    Box(
-        Modifier
-            .fillMaxWidth()
-            .padding(15.dp)
-            .background(MaterialTheme.colors.onSurface.copy(0.05f), RoundedCornerShape(5.dp))
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp), verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(
-                Icons.Default.Search,
-                null,
-                modifier = Modifier
-                    .size(20.dp),
-                tint = MaterialTheme.colors.onSurface.copy(ContentAlpha.disabled)
-            )
-            Spacer(modifier = Modifier.width(10.dp))
-            BasicTextField(
-                value = searchValue,
-                onValueChange = onValueChange,
-                singleLine = true,
-                modifier = Modifier.weight(1f),
-                textStyle = MaterialTheme.typography.body2,
-                decorationBox = { innerTextField ->
-                    Row(modifier = Modifier.fillMaxWidth()) {
-                        if (searchValue.isEmpty()) {
-                            Text(
-                                text = "请输入搜索信息",
-                                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.disabled),
-                            )
-                        }
-                    }
-                    innerTextField()
-                }
-            )
-            Spacer(modifier = Modifier.width(10.dp))
-
-            AnimatedVisibility(
-                visible = searchValue.isNotBlank(), enter = fadeIn(),
-                exit = fadeOut(),
-            ) {
-                Icon(
-                    Icons.Default.Close,
-                    null,
-                    tint = MaterialTheme.colors.surface.copy(ContentAlpha.high),
-                    modifier = Modifier
-                        .size(20.dp)
-                        .padding(2.dp)
-                        .clickable(
-                            indication = null,
-                            interactionSource = remember { MutableInteractionSource() },
-                            onClick = {
-                                onValueChange("")
-                            }
-                        )
-                        .background(
-                            MaterialTheme.colors.onSurface.copy(0.12f),
-                            CircleShape
-                        )
-                )
-            }
-        }
-    }
-}
+//@Composable
+//fun SearchBar(searchValue: String, onValueChange: (value: String) -> Unit) {
+//    SearchBar
+//    Box(
+//        Modifier
+//            .fillMaxWidth()
+//            .padding(15.dp)
+//            .background(MaterialTheme.colors.onSurface.copy(0.05f), RoundedCornerShape(5.dp))
+//    ) {
+//        Row(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(10.dp), verticalAlignment = Alignment.CenterVertically
+//        ) {
+//            Icon(
+//                Icons.Default.Search,
+//                null,
+//                modifier = Modifier
+//                    .size(20.dp),
+//                tint = MaterialTheme.colors.onSurface.copy(ContentAlpha.disabled)
+//            )
+//            Spacer(modifier = Modifier.width(10.dp))
+//            BasicTextField(
+//                value = searchValue,
+//                onValueChange = onValueChange,
+//                singleLine = true,
+//                modifier = Modifier.weight(1f),
+//                textStyle = MaterialTheme.typography.body2,
+//                decorationBox = { innerTextField ->
+//                    Row(modifier = Modifier.fillMaxWidth()) {
+//                        if (searchValue.isEmpty()) {
+//                            Text(
+//                                text = "请输入搜索信息",
+//                                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.disabled),
+//                            )
+//                        }
+//                    }
+//                    innerTextField()
+//                }
+//            )
+//            Spacer(modifier = Modifier.width(10.dp))
+//
+//            AnimatedVisibility(
+//                visible = searchValue.isNotBlank(), enter = fadeIn(),
+//                exit = fadeOut(),
+//            ) {
+//                Icon(
+//                    Icons.Default.Close,
+//                    null,
+//                    tint = MaterialTheme.colors.surface.copy(ContentAlpha.high),
+//                    modifier = Modifier
+//                        .size(20.dp)
+//                        .padding(2.dp)
+//                        .clickable(
+//                            indication = null,
+//                            interactionSource = remember { MutableInteractionSource() },
+//                            onClick = {
+//                                onValueChange("")
+//                            }
+//                        )
+//                        .background(
+//                            MaterialTheme.colors.onSurface.copy(0.12f),
+//                            CircleShape
+//                        )
+//                )
+//            }
+//        }
+//    }
+//}
 
