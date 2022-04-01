@@ -60,7 +60,11 @@ fun SelectCity(
         derivedStateOf { cityList.filter { it.city.contains(searchValue) } }
     }
     Column {
-        SearchBar(value = searchValue, modifier = Modifier.padding(10.dp)) { searchValue = it }
+        Box( modifier = Modifier.padding(10.dp)) {
+            SearchBar(value = searchValue,onActionClick = {
+                searchValue = it
+            }) { searchValue = it }
+        }
         if (searchValue.isBlank()) {
             CityList(cityList, hotCityList, scope, itemHeight, onSelect)
         } else {

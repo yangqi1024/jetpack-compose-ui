@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.idesign.cui.testclient">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name=".ComposeUiTestApplication"
@@ -71,6 +72,17 @@
             android:name="cn.idesign.cui.testclient.searchbar.SearchBarActivity"
             android:exported="true"
             android:label="SearchBar示例"
+            android:theme="@style/Theme.CUI">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="cn.idesign.cui.testclient.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="cn.idesign.cui.testclient.noticebar.NoticeBarActivity"
+            android:exported="true"
+            android:label="NoticeBar示例"
             android:theme="@style/Theme.CUI">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
