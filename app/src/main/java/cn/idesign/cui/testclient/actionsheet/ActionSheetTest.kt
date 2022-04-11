@@ -22,6 +22,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import cn.idesign.cui.actionsheet.*
+import cn.idesign.cui.bottomsheet.BottomSheetState
+import cn.idesign.cui.bottomsheet.rememberBottomSheetState
 import cn.idesign.cui.testclient.R
 import kotlinx.coroutines.launch
 
@@ -30,13 +32,13 @@ import kotlinx.coroutines.launch
 fun ActionSheetTest() {
     val context = LocalContext.current
 
-    val simpleState = rememberActionSheetState()
-    val leftState = rememberActionSheetState()
-    val titleState = rememberActionSheetState()
-    val cancelState = rememberActionSheetState()
-    val descriptionState = rememberActionSheetState()
-    val colorState = rememberActionSheetState()
-    val gridState = rememberActionSheetState()
+    val simpleState = rememberBottomSheetState()
+    val leftState = rememberBottomSheetState()
+    val titleState = rememberBottomSheetState()
+    val cancelState = rememberBottomSheetState()
+    val descriptionState = rememberBottomSheetState()
+    val colorState = rememberBottomSheetState()
+    val gridState = rememberBottomSheetState()
     val scope = rememberCoroutineScope()
     Column(
         modifier = Modifier
@@ -144,7 +146,7 @@ fun ActionSheetTest() {
 
 @Composable
 private fun Simple(
-    actionSheetState: ActionSheetState,
+    actionSheetState: BottomSheetState,
     context: Context
 ) {
     ActionSheet(
@@ -170,7 +172,7 @@ private fun Simple(
 
 @Composable
 private fun GravityLeft(
-    actionSheetState: ActionSheetState,
+    actionSheetState: BottomSheetState,
     context: Context
 ) {
     ActionSheet(
@@ -203,7 +205,7 @@ private fun GravityLeft(
 
 @Composable
 private fun WithTitle(
-    actionSheetState: ActionSheetState,
+    actionSheetState: BottomSheetState,
     context: Context
 ) {
     ActionSheet(
@@ -229,7 +231,7 @@ private fun WithTitle(
 
 @Composable
 private fun CancelTitle(
-    actionSheetState: ActionSheetState,
+    actionSheetState: BottomSheetState,
     context: Context
 ) {
     ActionSheet(
@@ -255,7 +257,7 @@ private fun CancelTitle(
 
 @Composable
 private fun DescriptionSimple(
-    actionSheetState: ActionSheetState,
+    actionSheetState: BottomSheetState,
     context: Context
 ) {
     ActionSheet(
@@ -283,7 +285,7 @@ private fun DescriptionSimple(
 
 @Composable
 private fun ColorSimple(
-    actionSheetState: ActionSheetState,
+    actionSheetState: BottomSheetState,
     context: Context
 ) {
     ActionSheet(
@@ -314,7 +316,7 @@ private fun ColorSimple(
 
 @Composable
 private fun GridSimple(
-    actionSheetState: ActionSheetState,
+    actionSheetState: BottomSheetState,
     context: Context
 ) {
     GridSheet(

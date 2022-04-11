@@ -33,11 +33,12 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import cn.idesign.cui.bottomsheet.BottomSheetState
 import kotlinx.coroutines.launch
 
 @Composable
 fun GridSheet(
-    state: ActionSheetState,
+    state: BottomSheetState,
     firstLine: Array<GridSheetItem>,
     secondLine: Array<GridSheetItem>,
     textTextStyle: TextStyle = MaterialTheme.typography.body2,

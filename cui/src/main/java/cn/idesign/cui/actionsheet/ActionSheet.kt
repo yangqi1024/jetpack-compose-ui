@@ -8,25 +8,20 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.ModalBottomSheetLayout
-import androidx.compose.material.ModalBottomSheetState
-import androidx.compose.material.ModalBottomSheetValue
-import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.saveable.Saver
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import cn.idesign.cui.bottomsheet.BottomSheet
+import cn.idesign.cui.bottomsheet.BottomSheetState
+import cn.idesign.cui.bottomsheet.rememberBottomSheetState
 import kotlinx.coroutines.launch
 
 
 @Composable
 fun ActionSheet(
-    state: ActionSheetState = rememberActionSheetState(),
+    state: BottomSheetState = rememberBottomSheetState(),
     title: String? = null,
     description: String? = null,
     cancelText: String? = null,
@@ -83,24 +78,15 @@ fun ActionSheet(
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ActionSheet(
-    state: ActionSheetState = rememberActionSheetState(),
+    state: BottomSheetState = rememberBottomSheetState(),
     header: (@Composable () -> Unit)? = null,
     footer: (@Composable () -> Unit)? = null,
     content: @Composable () -> Unit,
-    divider: (@Composable () -> Unit)? = {
-        Divider()
-    },
 ) {
-    val bottomSheetState = rememberModalBottomSheetState(
-        initialValue = state.covertBottomSheetInitialValue(),
-    )
-    LaunchedEffect(bottomSheetState) {
-        state.bottomSheetState = bottomSheetState
-    }
-    ModalBottomSheetLayout(
-        sheetState = bottomSheetState,
-        sheetBackgroundColor = Color.Transparent,
-        sheetContent = {
+
+    BottomSheet(
+        state = state,
+        content = {
             Box(
                 Modifier
                     .clip(RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp))
@@ -117,7 +103,7 @@ fun ActionSheet(
                 }
             }
         }
-    ) {}
+    )
 }
 
 @Composable
@@ -137,64 +123,3 @@ private fun renderItem(action: Action, onClick: (() -> Unit)? = null) {
 }
 
 
-@Composable
-fun rememberActionSheetState(
-    initialValue: ActionSheetValue = ActionSheetValue.Hidden
-): ActionSheetState = rememberSaveable(saver = ActionSheetState.Saver) {
-    ActionSheetState(
-        initialValue = initialValue,
-    )
-}
-
-class ActionSheetState(
-    val initialValue: ActionSheetValue,
-) {
-
-
-    @OptIn(ExperimentalMaterialApi::class)
-    internal lateinit var bottomSheetState: ModalBottomSheetState
-
-    @OptIn(ExperimentalMaterialApi::class)
-    suspend fun show() {
-        bottomSheetState.show()
-    }
-
-    @OptIn(ExperimentalMaterialApi::class)
-    suspend fun hide() {
-        bottomSheetState.hide()
-    }
-
-    @OptIn(ExperimentalMaterialApi::class)
-    val isVisible: Boolean
-        get() = bottomSheetState.isVisible
-
-
-    @OptIn(ExperimentalMaterialApi::class)
-    internal fun covertBottomSheetInitialValue(): ModalBottomSheetValue {
-        return when (initialValue) {
-            ActionSheetValue.Hidden -> ModalBottomSheetValue.Hidden
-            ActionSheetValue.HalfExpanded -> ModalBottomSheetValue.HalfExpanded
-            ActionSheetValue.Expanded -> ModalBottomSheetValue.Expanded
-        }
-    }
-
-    companion object {
-        val Saver: Saver<ActionSheetState, *> = Saver(
-            save = {
-                it.initialValue
-            },
-            restore = {
-                ActionSheetState(ActionSheetValue.Hidden)
-            }
-        )
-    }
-}
-
-enum class ActionSheetValue {
-
-    Hidden,
-
-    Expanded,
-
-    HalfExpanded
-}
