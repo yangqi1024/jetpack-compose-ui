@@ -6,6 +6,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.LocalContentAlpha
 import androidx.compose.material.LocalContentColor
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,7 +22,7 @@ fun Indicator(
     currentPage: Int,
     indicatorProgress: Float,
     modifier: Modifier = Modifier,
-    activeColor: Color = LocalContentColor.current.copy(alpha = LocalContentAlpha.current),
+    activeColor: Color = MaterialTheme.colors.primary.copy(ContentAlpha.high),
     inactiveColor: Color = activeColor.copy(ContentAlpha.disabled),
     indicatorShape: Shape = CircleShape,
     inactiveIndicatorWidth: Dp = 8.dp,
