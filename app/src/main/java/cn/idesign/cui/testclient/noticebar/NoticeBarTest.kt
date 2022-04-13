@@ -1,6 +1,8 @@
 package cn.idesign.cui.testclient.noticebar
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.ContentAlpha
@@ -17,31 +19,67 @@ import cn.idesign.cui.noticebar.NoticeBar
 fun NoticeBarTest() {
     LazyColumn(Modifier.padding(10.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
         item {
-            Text(text = "基础用法")
+            Text(
+                text = "基础用法",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 5.dp)
+                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
+                    .padding(vertical = 5.dp),
+                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+            )
             NoticeBar(text = "这是 NoticeBar 通告栏")
         }
 
         item {
-
-            Text(text = "单行用法")
+            Text(
+                text = "单行用法",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 5.dp)
+                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
+                    .padding(vertical = 5.dp),
+                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+            )
             NoticeBar(text = "[单行] 这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏", singleLine = true)
         }
 
         item {
-
-            Text(text = "多行用法")
+            Text(
+                text = "多行用法",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 5.dp)
+                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
+                    .padding(vertical = 5.dp),
+                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+            )
             NoticeBar(text = "[多行] 这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏")
         }
 
         item {
-
-            Text(text = "前缀图标")
+            Text(
+                text = "前缀图标",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 5.dp)
+                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
+                    .padding(vertical = 5.dp),
+                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+            )
             NoticeBar(text = "这是 NoticeBar 通告栏", prefixIcon = Icons.Default.Notifications)
         }
 
         item {
-
-            Text(text = "关闭图标")
+            Text(
+                text = "关闭图标",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 5.dp)
+                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
+                    .padding(vertical = 5.dp),
+                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+            )
             NoticeBar(
                 text = "这是 NoticeBar 通告栏",
                 prefixIcon = Icons.Default.Notifications,
@@ -50,9 +88,15 @@ fun NoticeBarTest() {
         }
 
         item {
-
-
-            Text(text = "自定义样式")
+            Text(
+                text = "自定义样式",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 5.dp)
+                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
+                    .padding(vertical = 5.dp),
+                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+            )
             NoticeBar(
                 text = "这是 NoticeBar 通告栏",
                 prefixIcon = Icons.Default.Notifications,

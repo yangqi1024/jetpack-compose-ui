@@ -29,8 +29,9 @@ fun NetworkImageTest() {
                 text = "基础用法",
                 modifier = Modifier
                     .fillMaxWidth()
+                    .padding(bottom = 5.dp)
                     .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
-                    .padding(vertical = 10.dp),
+                    .padding(vertical = 5.dp),
                 color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
             )
             NetworkImage(
@@ -45,13 +46,16 @@ fun NetworkImageTest() {
                 text = "填充模式",
                 modifier = Modifier
                     .fillMaxWidth()
+                    .padding(bottom = 5.dp)
                     .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
-                    .padding(vertical = 10.dp),
+                    .padding(vertical = 5.dp),
                 color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
             )
             Row(
                 horizontalArrangement = Arrangement.SpaceAround,
-                modifier = Modifier.fillMaxWidth().padding(top = 10.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 10.dp)
             ) {
                 Column() {
                     NetworkImage(
@@ -92,7 +96,9 @@ fun NetworkImageTest() {
             }
             Row(
                 horizontalArrangement = Arrangement.SpaceAround,
-                modifier = Modifier.fillMaxWidth().padding(top=10.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 10.dp)
             ) {
                 Column() {
                     NetworkImage(
@@ -138,8 +144,9 @@ fun NetworkImageTest() {
                 text = "加载失败",
                 modifier = Modifier
                     .fillMaxWidth()
+                    .padding(bottom = 5.dp)
                     .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
-                    .padding(vertical = 10.dp),
+                    .padding(vertical = 5.dp),
                 color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
             )
             NetworkImage(

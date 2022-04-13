@@ -43,8 +43,9 @@ fun PreviewTest() {
                 text = "基础用法",
                 modifier = Modifier
                     .fillMaxWidth()
+                    .padding(bottom = 5.dp)
                     .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
-                    .padding(vertical = 10.dp),
+                    .padding(vertical = 5.dp),
                 color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
             )
             Button(onClick = {
@@ -59,8 +60,9 @@ fun PreviewTest() {
                 text = "指定初始位置",
                 modifier = Modifier
                     .fillMaxWidth()
+                    .padding(bottom = 5.dp)
                     .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
-                    .padding(vertical = 10.dp),
+                    .padding(vertical = 5.dp),
                 color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
             )
             Button(onClick = {
@@ -75,8 +77,9 @@ fun PreviewTest() {
                 text = "打开新的Activity",
                 modifier = Modifier
                     .fillMaxWidth()
+                    .padding(bottom = 5.dp)
                     .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
-                    .padding(vertical = 10.dp),
+                    .padding(vertical = 5.dp),
                 color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
             )
             Button(onClick = {

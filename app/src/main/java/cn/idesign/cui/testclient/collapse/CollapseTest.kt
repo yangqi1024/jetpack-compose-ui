@@ -21,8 +21,9 @@ fun CollapseTest() {
                 text = "基础用法",
                 modifier = Modifier
                     .fillMaxWidth()
+                    .padding(bottom = 5.dp)
                     .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
-                    .padding(vertical = 10.dp),
+                    .padding(vertical = 5.dp),
                 color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
             )
             Collapse {
@@ -42,8 +43,9 @@ fun CollapseTest() {
                 text = "指定默认的打开",
                 modifier = Modifier
                     .fillMaxWidth()
+                    .padding(bottom = 5.dp)
                     .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
-                    .padding(vertical = 10.dp),
+                    .padding(vertical = 5.dp),
                 color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
             )
             Collapse(activeKeys = arrayOf("1")) {
@@ -64,8 +66,9 @@ fun CollapseTest() {
                 text = "手风琴效果",
                 modifier = Modifier
                     .fillMaxWidth()
+                    .padding(bottom = 5.dp)
                     .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
-                    .padding(vertical = 10.dp),
+                    .padding(vertical = 5.dp),
                 color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
             )
             Collapse(activeKeys = arrayOf("1"), accordion = true) {
