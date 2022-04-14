@@ -3,32 +3,40 @@ package cn.idesign.cui.banner
 import androidx.annotation.FloatRange
 import androidx.annotation.IntRange
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.Stable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.Saver
-import androidx.compose.runtime.saveable.listSaver
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import cn.idesign.cui.banner.BannerDirection.Horizontal
-import cn.idesign.cui.banner.BannerDirection.Vertical
-import com.google.accompanist.pager.*
+import cn.idesign.cui.common.Direction
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.HorizontalPager
+import com.google.accompanist.pager.PagerState
+import com.google.accompanist.pager.VerticalPager
+import com.google.accompanist.pager.rememberPagerState
 import kotlin.math.abs
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun Banner(
+    modifier: Modifier = Modifier,
     count: Int,
     loop: Boolean = false,
-    direction: BannerDirection = Horizontal,
+    direction: Direction = Direction.Horizontal,
     contentPadding: PaddingValues = PaddingValues(horizontal = 0.dp),
     itemSpacing: Dp = 0.dp,
     reverseLayout: Boolean = false,
     state: BannerState = rememberBannerState(),
     verticalAlignment: Alignment.Vertical = Alignment.CenterVertically,
     horizontalAlignment: Alignment.Horizontal = Alignment.CenterHorizontally,
-    modifier: Modifier = Modifier,
     content: @Composable() (BannerScope.(page: Int) -> Unit),
 ) {
 
@@ -48,7 +56,7 @@ fun Banner(
         pagerState.scrollToPage(startIndex)
     }
     when (direction) {
-        is Horizontal -> {
+        is Direction.Horizontal -> {
             HorizontalPager(
                 count = realCount,
                 state = pagerState,
@@ -63,7 +71,7 @@ fun Banner(
             }
         }
 
-        is Vertical -> {
+        is Direction.Vertical -> {
             VerticalPager(
                 count = realCount,
                 state = pagerState,
@@ -79,11 +87,6 @@ fun Banner(
         }
     }
 
-}
-
-sealed class BannerDirection {
-    object Vertical : BannerDirection()
-    object Horizontal : BannerDirection()
 }
 
 @Stable

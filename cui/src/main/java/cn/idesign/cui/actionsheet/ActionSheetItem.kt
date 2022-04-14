@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun ActionSheetItem(
+    modifier: Modifier,
     text: String? = null,
     textModifier: Modifier,
     textColor: Color,
@@ -26,7 +27,6 @@ fun ActionSheetItem(
     secondaryTextColor: Color,
     secondaryTextModifier: Modifier,
     secondaryTextTextStyle: TextStyle = MaterialTheme.typography.body2,
-    modifier: Modifier,
     horizontalAlignment: Alignment.Horizontal,
     verticalArrangement: Arrangement.HorizontalOrVertical,
     onClick: (() -> Unit)? = null,

@@ -37,9 +37,9 @@ import androidx.compose.ui.unit.dp
 @SuppressLint("MutableCollectionMutableState")
 @Composable
 fun Collapse(
+    modifier: Modifier = Modifier,
     accordion: Boolean = false,
     activeKeys: Array<String> = arrayOf(),
-    modifier: Modifier = Modifier,
     titleModifier: Modifier = Modifier,
     onChange: ((activeKeys: Array<String>) -> Unit)? = null,
     content: CollapseScope.() -> Unit,
@@ -51,7 +51,6 @@ fun Collapse(
         mutableListOf.addAll(activeKeys)
         mutableStateOf(mutableListOf)
     }
-
 
     Column(modifier = modifier) {
         repeat(collapseScopeImpl.intervals.size) { index ->
@@ -95,91 +94,4 @@ fun checkOpen(activeKeys: List<String>, key: String, accordion: Boolean): Boolea
     }
     return activeKeys.contains(key)
 }
-
-@Composable
-fun CollapseItem(
-    title: String,
-    open: Boolean = false,
-    titleModifier: Modifier = Modifier,
-    onClick: ((open: Boolean) -> Unit)? = null,
-    content: @Composable () -> Unit
-) {
-
-    var _open by remember(open) {
-        mutableStateOf(open)
-    }
-    val rotate by animateFloatAsState(
-        targetValue = if (_open) 90f else 0f,
-        animationSpec = tween(Spring.StiffnessMediumLow.toInt())
-    )
-
-    Column {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .clickable {
-                    _open = !_open
-                    onClick?.let { it(_open) }
-                }
-                .padding(horizontal = 10.dp, vertical = 15.dp)
-                .background(color = MaterialTheme.colors.surface.copy(ContentAlpha.medium))
-                .then(titleModifier),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Text(
-                text = title,
-                style = MaterialTheme.typography.subtitle1,
-                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high)
-            )
-            Icon(
-                imageVector = Icons.Default.ArrowForward,
-                contentDescription = null,
-                modifier = Modifier
-                    .rotate(rotate)
-                    .size(16.dp),
-                tint = MaterialTheme.colors.onSurface.copy(ContentAlpha.high)
-            )
-        }
-        Divider()
-        AnimatedVisibility(
-            visible = _open,
-            enter = expandVertically(
-                expandFrom = Alignment.Top
-            ) + fadeIn(initialAlpha = 0.3f),
-            exit = shrinkVertically() + fadeOut()
-        ) {
-            Column(
-                modifier = Modifier.padding(10.dp)
-            ) {
-                content()
-            }
-        }
-
-    }
-}
-
-interface CollapseScope {
-    fun collapseItem(
-        title: String,
-        key: String,
-        content: @Composable CollapseItemScope.() -> Unit
-    ) {
-
-    }
-
-    fun collapseItems(
-        items: List<CollapseItemModel>,
-        itemContent: @Composable CollapseItemScope.(item: CollapseItemModel) -> Unit
-    ) {
-    }
-}
-
-interface CollapseItemScope {
-
-}
-
-class CollapseItemModel(
-    val title: String,
-    val key: String
-)
 

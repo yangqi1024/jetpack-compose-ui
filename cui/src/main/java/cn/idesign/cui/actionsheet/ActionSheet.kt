@@ -109,13 +109,13 @@ fun ActionSheet(
 @Composable
 private fun renderItem(action: Action, onClick: (() -> Unit)? = null) {
     ActionSheetItem(
+        modifier = action.modifier,
         text = action.text,
         textModifier = action.textModifier,
         textColor = action.textColor,
         secondaryText = action.secondaryText,
         secondaryTextColor = action.secondaryTextColor,
         secondaryTextModifier = action.secondaryTextModifier,
-        modifier = action.modifier,
         horizontalAlignment = action.horizontalAlignment,
         verticalArrangement = action.verticalArrangement,
         onClick = onClick
