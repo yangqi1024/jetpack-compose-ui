@@ -245,7 +245,6 @@ fun HorizontalStepItem(
     })
     ConstraintLayout(modifier) {
         val (iconRef, title, description, divider) = createRefs()
-        val barrier = createEndBarrier(title, description)
         Box(modifier = Modifier
             .constrainAs(iconRef) {
                 top.linkTo(parent.top)
@@ -360,7 +359,7 @@ fun StepIcon(
 
 
 @Composable
-fun StepIconCopy(status: StepStatus, index: Int) {
+fun StepIconCopy(status: StepStatus) {
     val largeWidth = 14.dp
     val smallWidth = 8.dp
     val alpha = ContentAlpha.disabled
