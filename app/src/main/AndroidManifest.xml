@@ -178,6 +178,17 @@
                 <category android:name="cn.idesign.cui.testclient.SAMPLE_CODE" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="cn.idesign.cui.testclient.privacypolicy.PrivacyPolicyActivity"
+            android:exported="true"
+            android:label="PrivacyPolicy示例"
+            android:theme="@style/Theme.CUI">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="cn.idesign.cui.testclient.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

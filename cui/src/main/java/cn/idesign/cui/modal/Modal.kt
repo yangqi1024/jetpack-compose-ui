@@ -15,14 +15,14 @@ import androidx.compose.ui.window.DialogProperties
 @Composable
 fun Modal(
     state: ModalState = rememberModalState(),
+    properties: DialogProperties = DialogProperties(usePlatformDefaultWidth = false),
     onClose: () -> Unit,
     content: @Composable () -> Unit
 ) {
     if (state.currentValue == ModalValue.Expanded) {
         Dialog(
-            onDismissRequest = onClose, properties = DialogProperties(
-                usePlatformDefaultWidth = false
-            )
+            onDismissRequest = onClose,
+            properties = properties
         ) {
             content()
         }
