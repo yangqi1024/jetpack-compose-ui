@@ -18,6 +18,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import cn.idesign.cui.curtain.Curtain
 import cn.idesign.cui.curtain.CurtainAlignment
@@ -34,8 +35,7 @@ fun CurtainTest() {
     val commonState = rememberModalState()
     val multiState = rememberModalState()
     val closeAlignmentState = rememberModalState()
-    val customPaddingState = rememberModalState()
-    val customRatioState = rememberModalState()
+    val customSizeState = rememberModalState()
     var closeCurtainAlignment: CurtainAlignment by remember {
         mutableStateOf(CurtainAlignment.TopStart)
     }
@@ -76,7 +76,7 @@ fun CurtainTest() {
 
         item {
             Text(
-                text = "自定义Padding",
+                text = "自定义大小",
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 5.dp)
@@ -85,27 +85,11 @@ fun CurtainTest() {
                 color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
             )
             Button(onClick = {
-                customPaddingState.show()
+                customSizeState.show()
             }) {
-                Text(text = "自定义Padding")
+                Text(text = "自定义大小")
             }
 
-        }
-        item {
-            Text(
-                text = "自定义宽高比",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 5.dp)
-                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
-                    .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
-            )
-            Button(onClick = {
-                customRatioState.show()
-            }) {
-                Text(text = "自定义宽高比")
-            }
         }
 
         item {
@@ -184,15 +168,11 @@ fun CurtainTest() {
         }
     )
     Curtain(
-        state = customPaddingState,
+        state = customSizeState,
         url = "https://raw.githubusercontent.com/yipianfengye/android-adDialog/master/images/testImage2.png",
-        padding = 80.dp
+        size = DpSize(200.dp, 280.dp)
     )
-    Curtain(
-        state = customRatioState,
-        url = "https://raw.githubusercontent.com/yipianfengye/android-adDialog/master/images/testImage2.png",
-        aspectRatio = 0.9f
-    )
+
     Curtain(
         state = multiState,
         data = listOf(

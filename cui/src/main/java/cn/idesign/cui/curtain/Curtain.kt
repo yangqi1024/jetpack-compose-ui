@@ -17,8 +17,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstrainScope
 import androidx.constraintlayout.compose.ConstrainedLayoutReference
@@ -37,15 +36,14 @@ import cn.idesign.cui.modal.rememberModalState
 fun Curtain(
     state: ModalState = rememberModalState(),
     url: String,
-    padding: Dp = 50.dp,
-    aspectRatio: Float = 0.75f,
+    size: DpSize = DpSize(260.dp, 350.dp),
+
     closeAlignment: CurtainAlignment = CurtainAlignment.BottomCenter,
     onClick: (() -> Unit)? = null,
 ) {
     Curtain(
         state = state,
-        padding = padding,
-        aspectRatio = aspectRatio,
+        size = size,
         data = listOf(CurtainModel(url)),
         closeAlignment = closeAlignment,
         onClick = {
@@ -58,19 +56,17 @@ fun Curtain(
 @Composable
 fun Curtain(
     state: ModalState = rememberModalState(),
+    size: DpSize = DpSize(250.dp, 350.dp),
     data: List<out CurtainModel>,
-    padding: Dp = 50.dp,
-    aspectRatio: Float = 0.75f,
     closeAlignment: CurtainAlignment = CurtainAlignment.BottomCenter,
     onClick: ((value: CurtainModel) -> Unit)? = null,
 ) {
-    val configuration = LocalConfiguration.current
-    val widthDp = configuration.screenWidthDp.dp
-    val realWidthDp = widthDp - padding * 2
-    val realHeightDp = realWidthDp / aspectRatio
+
+    val widthDp = size.width
+    val heightDp = size.height
     val bannerState = rememberBannerState()
     Curtain(state = state) {
-        ConstraintLayout(Modifier.width(realWidthDp)) {
+        ConstraintLayout(Modifier.width(widthDp)) {
             val (banner, indicator, close) = createRefs()
             Banner(
                 count = data.size,
@@ -86,8 +82,8 @@ fun Curtain(
                     data = data[page].url,
                     modifier = Modifier
                         .size(
-                            width = realWidthDp,
-                            height = realHeightDp
+                            width = widthDp,
+                            height = heightDp
                         )
                         .clickable(
                             indication = null,
