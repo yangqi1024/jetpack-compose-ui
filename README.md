@@ -27,6 +27,7 @@
 - [Curtain](#Curtain)
 - [Indicator](#Indicator)
 - [NoticeBar](#NoticeBar)
+- [Preview](#Preview)
 - [PrivacyPolicy](#PrivacyPolicy)
 - [Progress](#Progress)
 - [SearchBar](#SearchBar)
@@ -78,6 +79,12 @@ NoticeBar
 Name | Demo
 --- | ---
 NoticeBar| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/noticebar/noticebar.gif" width="155" height="270">
+
+Preview
+======================
+Name | Demo
+--- | ---
+Preview| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/preview/preview.gif" width="155" height="270">
 
 PrivacyPolicy
 ======================
