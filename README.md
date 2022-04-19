@@ -48,7 +48,7 @@ AnnotatedText
 ======================
 Name | Demo
 --- | ---
-AnnotatedText| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/annotatedtext/annotatedtext.gif" width="155" height="270"><img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/actionsheet/title.gif" width="155" height="270"><img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/actionsheet/left.gif" width="155" height="270"><img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/actionsheet/withcancel.gif" width="155" height="270"><img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/actionsheet/withdesc.gif" width="155" height="270"><img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/actionsheet/customcolor.gif" width="155" height="270"><img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/actionsheet/gridsheet.gif" width="155" height="270">
+AnnotatedText| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/annotatedtext/annotatedtext.gif" width="155" height="270">
 
 Banner
 ======================
