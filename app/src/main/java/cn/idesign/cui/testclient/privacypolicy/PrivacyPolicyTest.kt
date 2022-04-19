@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.unit.dp
+import cn.idesign.cui.annotatedtext.AnnotatedAction
 import cn.idesign.cui.modal.rememberModalState
 import cn.idesign.cui.privacypolicy.PrivacyPolicy
 
@@ -41,13 +42,24 @@ fun PrivacyPolicyTest() {
                 Text(text = "打开用户协议")
             }
 
-            PrivacyPolicy(state = commonState,
+            PrivacyPolicy(
+                state = commonState,
                 text = "用户协议及隐私政策概要",
                 secondaryText = "欢迎使用虎牙直播！我们将通过《服务协议》和《隐私政策》帮助您了解我们所提供的服务以及我们收集和处理您个人信息的情况，并告知您所享有的相关权利。\n" +
                         "为向您提供更加安全、便捷、个性化的服务，虎牙直播会在您使用相关功能时申请有关设备权限，您可通过\"系统权限设置\"查阅并选择是否授权我们收集这些信息。 \n" +
                         "您也可以通过\"设置\"-\"隐私设置\"来管理个性化推荐、个性化广告内容。 \n" +
                         "请您无比在使用本软件前仔细阅读上述法律文件，若您同意，请点击\"同意\"后开始使用我们的服务。",
-                secondaryTextTagList = listOf("服务协议", "隐私政策", "设备权限"),
+                annotatedAction = listOf(
+                    AnnotatedAction("服务协议") { tag ->
+                        Toast.makeText(context, "点击了:${tag}", Toast.LENGTH_SHORT).show()
+                    },
+                    AnnotatedAction("隐私政策") { tag ->
+                        Toast.makeText(context, "点击了:${tag}", Toast.LENGTH_SHORT).show()
+                    },
+                    AnnotatedAction("设备权限") { tag ->
+                        Toast.makeText(context, "点击了:${tag}", Toast.LENGTH_SHORT).show()
+                    }
+                ),
                 onCancelClick = {
                     Toast.makeText(context, "点击了不同意", Toast.LENGTH_SHORT).show()
                     commonState.hide()
@@ -56,9 +68,6 @@ fun PrivacyPolicyTest() {
                     Toast.makeText(context, "点击了同意", Toast.LENGTH_SHORT).show()
                     commonState.hide()
                 },
-                onTagClick = { tag ->
-                    Toast.makeText(context, "点击了:${tag}", Toast.LENGTH_SHORT).show()
-                }
             )
         }
 
@@ -84,7 +93,17 @@ fun PrivacyPolicyTest() {
                         "为向您提供更加安全、便捷、个性化的服务，虎牙直播会在您使用相关功能时申请有关设备权限，您可通过\"系统权限设置\"查阅并选择是否授权我们收集这些信息。 \n" +
                         "您也可以通过\"设置\"-\"隐私设置\"来管理个性化推荐、个性化广告内容。 \n" +
                         "请您无比在使用本软件前仔细阅读上述法律文件，若您同意，请点击\"同意\"后开始使用我们的服务。",
-                secondaryTextTagList = listOf("服务协议", "隐私政策", "设备权限"),
+                annotatedAction = listOf(
+                    AnnotatedAction("服务协议") { tag ->
+                        Toast.makeText(context, "点击了:${tag}", Toast.LENGTH_SHORT).show()
+                    },
+                    AnnotatedAction("隐私政策") { tag ->
+                        Toast.makeText(context, "点击了:${tag}", Toast.LENGTH_SHORT).show()
+                    },
+                    AnnotatedAction("设备权限") { tag ->
+                        Toast.makeText(context, "点击了:${tag}", Toast.LENGTH_SHORT).show()
+                    }
+                ),
                 onCancelClick = {
                     Toast.makeText(context, "点击了不同意", Toast.LENGTH_SHORT).show()
                     customColorState.hide()
@@ -93,10 +112,7 @@ fun PrivacyPolicyTest() {
                     Toast.makeText(context, "点击了同意", Toast.LENGTH_SHORT).show()
                     customColorState.hide()
                 },
-                onTagClick = { tag ->
-                    Toast.makeText(context, "点击了:${tag}", Toast.LENGTH_SHORT).show()
-                },
-                tagStyle = SpanStyle(color = MaterialTheme.colors.secondary),
+                annotatedStyle = SpanStyle(color = MaterialTheme.colors.secondary),
                 okButtonColors = ButtonDefaults.buttonColors(backgroundColor = Color(0xfff1ad3b))
 
             )

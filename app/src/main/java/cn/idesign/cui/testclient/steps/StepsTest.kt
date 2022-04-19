@@ -1,5 +1,7 @@
 package cn.idesign.cui.testclient.steps
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -12,7 +14,9 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import cn.idesign.cui.annotatedtext.AnnotatedAction
 import cn.idesign.cui.common.Direction
 import cn.idesign.cui.steps.StepModel
 import cn.idesign.cui.steps.StepStatus
@@ -21,6 +25,7 @@ import cn.idesign.cui.steps.rememberStepState
 
 @Composable
 fun StepsTest() {
+    val context = LocalContext.current
     val horizontalData = listOf(
         StepModel("步骤1"),
         StepModel("步骤2"),
@@ -159,7 +164,14 @@ fun StepsTest() {
                     .padding(vertical = 5.dp),
                 color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
             )
-            Steps(data = logisticsData)
+            Steps(
+                data = logisticsData,
+                annotatedAction = listOf(AnnotatedAction("1[3-9][0-9]{9}") { tag ->
+                    val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:${tag}"))
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                    context.startActivity(intent)
+                })
+            )
         }
     }
 }

@@ -30,6 +30,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.isUnspecified
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
@@ -38,6 +39,8 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import androidx.constraintlayout.compose.Visibility
+import cn.idesign.cui.annotatedtext.AnnotatedAction
+import cn.idesign.cui.annotatedtext.AnnotatedText
 import cn.idesign.cui.common.Direction
 
 @SuppressLint("RememberReturnType")
@@ -46,19 +49,27 @@ fun Steps(
     modifier: Modifier = Modifier,
     state: StepState = rememberStepState(),
     data: List<StepModel> = listOf(),
-    direction: Direction = Direction.Vertical
+    direction: Direction = Direction.Vertical,
+    annotatedAction: List<AnnotatedAction> = listOf(),
+    annotatedStyle: SpanStyle = SpanStyle(color = MaterialTheme.colors.primary),
 ) {
     remember(data) {
         state.size = data.size
     }
     when (direction) {
-        Direction.Vertical -> StepsVertical(modifier, data, state)
-        Direction.Horizontal -> StepsHorizontal(modifier, data, state)
+        Direction.Vertical -> StepsVertical(modifier, data, state, annotatedAction, annotatedStyle)
+        Direction.Horizontal -> StepsHorizontal(modifier, data, state, annotatedAction, annotatedStyle)
     }
 }
 
 @Composable
-fun StepsVertical(modifier: Modifier, data: List<StepModel>, state: StepState) {
+fun StepsVertical(
+    modifier: Modifier,
+    data: List<StepModel>,
+    state: StepState,
+    annotatedAction: List<AnnotatedAction>,
+    annotatedStyle: SpanStyle,
+) {
     Column(modifier) {
         repeat(data.size) { index ->
             val model = data[index]
@@ -87,13 +98,21 @@ fun StepsVertical(modifier: Modifier, data: List<StepModel>, state: StepState) {
                 icon = icon,
                 showDivider = index != data.size - 1,
                 status = status,
+                annotatedAction = annotatedAction,
+                annotatedStyle = annotatedStyle,
             )
         }
     }
 }
 
 @Composable
-fun StepsHorizontal(modifier: Modifier, data: List<StepModel>, state: StepState) {
+fun StepsHorizontal(
+    modifier: Modifier,
+    data: List<StepModel>,
+    state: StepState,
+    annotatedAction: List<AnnotatedAction>,
+    annotatedStyle: SpanStyle
+) {
     Row(
         modifier
     ) {
@@ -126,6 +145,8 @@ fun StepsHorizontal(modifier: Modifier, data: List<StepModel>, state: StepState)
                 icon = icon,
                 showDivider = index != data.size - 1,
                 status = status,
+                annotatedAction = annotatedAction,
+                annotatedStyle = annotatedStyle,
             )
         }
     }
@@ -144,6 +165,8 @@ fun VerticalStepItem(
     icon: @Composable () -> Unit,
     status: StepStatus,
     showDivider: Boolean = true,
+    annotatedAction: List<AnnotatedAction>,
+    annotatedStyle: SpanStyle,
 ) {
 
     val textColorState by animateColorAsState(targetValue = textColor.let { color ->
@@ -198,8 +221,7 @@ fun VerticalStepItem(
             color = textColorState,
             style = textTextStyle
         )
-        Text(
-            text = secondaryText ?: "",
+        AnnotatedText(
             modifier = Modifier
                 .constrainAs(description) {
                     start.linkTo(iconRef.end, margin = 8.dp)
@@ -209,8 +231,10 @@ fun VerticalStepItem(
                     width = Dimension.fillToConstraints
                     visibility = if (secondaryText == null) Visibility.Gone else Visibility.Visible
                 },
-            color = secondaryTextColorState,
-            style = secondaryTextTextStyle
+            text = secondaryText ?: "",
+            textStyle = secondaryTextTextStyle.copy(color = secondaryTextColorState),
+            annotatedStyle = annotatedStyle,
+            annotatedActions = annotatedAction
         )
     }
 }
@@ -227,6 +251,8 @@ fun HorizontalStepItem(
     icon: @Composable () -> Unit,
     status: StepStatus,
     showDivider: Boolean = true,
+    annotatedAction: List<AnnotatedAction>,
+    annotatedStyle: SpanStyle,
 ) {
 
     val textColorState by animateColorAsState(targetValue = textColor.let { color ->
@@ -282,8 +308,7 @@ fun HorizontalStepItem(
             color = textColorState,
             style = textTextStyle,
         )
-        Text(
-            text = secondaryText ?: "",
+        AnnotatedText(
             modifier = Modifier
                 .constrainAs(description) {
                     start.linkTo(iconRef.start)
@@ -294,8 +319,10 @@ fun HorizontalStepItem(
                     visibility = if (secondaryText == null) Visibility.Gone else Visibility.Visible
                 }
                 .wrapContentHeight(Alignment.CenterVertically),
-            color = secondaryTextColorState,
-            style = secondaryTextTextStyle
+            text = secondaryText ?: "",
+            textStyle = secondaryTextTextStyle.copy(color = secondaryTextColorState),
+            annotatedStyle = annotatedStyle,
+            annotatedActions = annotatedAction
         )
     }
 }
