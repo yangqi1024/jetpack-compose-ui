@@ -162,27 +162,27 @@ fun CurtainTest() {
 
     Curtain(
         state = commonState,
-        url = "https://raw.githubusercontent.com/yipianfengye/android-adDialog/master/images/testImage2.png",
+        url = "https://img.zcool.cn/community/01c4605ddd117aa801215972c06064.jpg@2o.jpg",
         onClick = {
             Toast.makeText(context, "点击了图片", Toast.LENGTH_SHORT).show()
         }
     )
     Curtain(
         state = customSizeState,
-        url = "https://raw.githubusercontent.com/yipianfengye/android-adDialog/master/images/testImage2.png",
+        url = "https://img.zcool.cn/community/01c4605ddd117aa801215972c06064.jpg@2o.jpg",
         size = DpSize(200.dp, 280.dp)
     )
 
     Curtain(
         state = multiState,
         data = listOf(
-            CurtainModel("https://raw.githubusercontent.com/yipianfengye/android-adDialog/master/images/testImage1.png"),
-            CurtainModel("https://raw.githubusercontent.com/yipianfengye/android-adDialog/master/images/testImage2.png")
+            CurtainModel("https://tse1-mm.cn.bing.net/th/id/R-C.1c34c450cf77bff7f075d3155c1791b4?rik=5lPXTF0HCSr%2fYg&riu=http%3a%2f%2fimg.aiimg.com%2fuploads%2fuserup%2f0912%2f100T13414V.jpg&ehk=ZK9E8KaxPFjr6aEOMxmSQzOiHO29x4XMdEaAuzueQ5w%3d&risl=&pid=ImgRaw&r=0"),
+            CurtainModel("https://img.zcool.cn/community/01c4605ddd117aa801215972c06064.jpg@2o.jpg")
         )
     )
     Curtain(
         state = closeAlignmentState,
-        url = "https://raw.githubusercontent.com/yipianfengye/android-adDialog/master/images/testImage2.png",
+        url = "https://img.zcool.cn/community/01c4605ddd117aa801215972c06064.jpg@2o.jpg",
         closeAlignment = closeCurtainAlignment
     )
 }

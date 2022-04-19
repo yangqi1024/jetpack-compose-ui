@@ -62,7 +62,6 @@ class MainActivity : ComponentActivity() {
                                         modifier = Modifier
                                             .padding(4.dp)
                                             .fillMaxWidth(),
-                                        elevation = 8.dp,
                                         onClick = {
                                             val intent = list[index].get("intent") as Intent
                                             startActivity(intent)

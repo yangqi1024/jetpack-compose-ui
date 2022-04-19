@@ -1,7 +1,7 @@
 
 
 <p align="center">
-    <img width="200" src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/logo/logo.png">
+    <img width="200" src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/logo/logo.png">
 </p>
 
 <h1 align="center">Compose UI</h1>
@@ -40,93 +40,93 @@
 
 ActionSheet
 ======================
-Name | Demo
+Name | 截图
 --- | ---
-ActionSheet| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/actionsheet/simple.gif" width="155" height="270"><img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/actionsheet/title.gif" width="155" height="270"><img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/actionsheet/left.gif" width="155" height="270"><img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/actionsheet/withcancel.gif" width="155" height="270"><img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/actionsheet/withdesc.gif" width="155" height="270"><img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/actionsheet/customcolor.gif" width="155" height="270"><img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/actionsheet/gridsheet.gif" width="155" height="270">
+ActionSheet| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/actionsheet/screenshot.jpg" width="360" height="780">
 
 AnnotatedText
 ======================
-Name | Demo
+Name | 截图
 --- | ---
-AnnotatedText| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/annotatedtext/annotatedtext.gif" width="155" height="270">
+AnnotatedText| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/annotatedtext/screenshot.jpg" width="360" height="780">
 
 Banner
 ======================
-Name | Demo
+Name | 截图
 --- | ---
-Banner| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/banner/Mar-23-2022%2009-57-11.gif" width="155" height="270">
+Banner| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/banner/screenshot.jpg" width="360" height="780">
 
 Collapse
 ======================
-Name | Demo
+Name | 截图
 --- | ---
-Collapse| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/collapse/collapse.gif" width="155" height="270">
+Collapse| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/collapse/screenshot.jpg" width="360" height="780">
 
 Curtain
 ======================
-Name | Demo
+Name | 截图
 --- | ---
-Curtain| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/curtain/curtain.gif" width="155" height="270">
+Curtain| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/curtain/screenshot.jpg" width="360" height="780">
 
 Indicator
 ======================
-Name | Demo
+Name | 截图
 --- | ---
-Indicator| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/indicator/indicator.gif" width="155" height="270">
+Indicator| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/indicator/screenshot.jpg" width="360" height="780">
 
 NoticeBar
 ======================
-Name | Demo
+Name | 截图
 --- | ---
-NoticeBar| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/noticebar/noticebar.gif" width="155" height="270">
+NoticeBar| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/noticebar/screenshot.jpg" width="360" height="780">
 
 Preview
 ======================
-Name | Demo
+Name | 截图
 --- | ---
-Preview| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/preview/preview.gif" width="155" height="270">
+Preview| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/preview/screenshot.jpg" width="360" height="780">
 
 PrivacyPolicy
 ======================
-Name | Demo
+Name | 截图
 --- | ---
-PrivacyPolicy| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/privacypolicy/privacypolicy.gif" width="155" height="270">
+PrivacyPolicy| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/privacypolicy/screenshot.jpg" width="360" height="780">
 
 Progress
 ======================
-Name | Demo
+Name | 截图
 --- | ---
-Progress| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/progress/progress.gif" width="155" height="270">
+Progress| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/progress/screenshot.jpg" width="360" height="780">
 
 SearchBar
 ======================
-Name | Demo
+Name | 截图
 --- | ---
-SearchBar| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/searchbar/searchbar.gif" width="155" height="270">
+SearchBar| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/searchbar/screenshot.jpg" width="360" height="780">
 
 SelectCity
 ======================
-Name | Demo
+Name | 截图
 --- | ---
-SelectCity| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/selectcity/selectcity.gif" width="155" height="270">
+SelectCity| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/selectcity/screenshot.jpg" width="360" height="780">
 
 StatefulLayout
 ======================
-Name | Demo
+Name | 截图
 --- | ---
-StatefulLayout| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/statefullayout/statefullayout.gif" width="155" height="270">
+StatefulLayout| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/statefullayout/screenshot.jpg" width="360" height="780">
 
 Steps
 ======================
-Name | Demo
+Name | 截图
 --- | ---
-Steps| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/steps/steps.gif" width="155" height="270">
+Steps| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/steps/screenshot.jpg" width="360" height="780">
 
 VerifyCode
 ======================
-Name | Demo
+Name | 截图
 --- | ---
-VerifyCode| <img src="https://github.com/yangqi1024/pic-repo/blob/main/Cui/verifycode/verifycode.gif" width="155" height="270">
+VerifyCode| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/verifycode/screenshot.jpg" width="360" height="780">
 
 
 ## 致谢

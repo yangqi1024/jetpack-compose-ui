@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -15,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.DpSize
@@ -37,7 +39,6 @@ fun Curtain(
     state: ModalState = rememberModalState(),
     url: String,
     size: DpSize = DpSize(260.dp, 350.dp),
-
     closeAlignment: CurtainAlignment = CurtainAlignment.BottomCenter,
     onClick: (() -> Unit)? = null,
 ) {
@@ -97,7 +98,7 @@ fun Curtain(
                                 }
                             }
                         ),
-                    contentScale = ContentScale.FillBounds
+                    contentScale = ContentScale.Fit
                 )
             }
             if (data.size > 1) {
