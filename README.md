@@ -25,6 +25,7 @@
 - [Banner](#Banner)
 - [Collapse](#Collapse)
 - [Curtain](#Curtain)
+- [GridCard](#GridCard)
 - [Indicator](#Indicator)
 - [NoticeBar](#NoticeBar)
 - [Preview](#Preview)
@@ -67,6 +68,12 @@ Curtain
 Name | 截图
 --- | ---
 Curtain| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/curtain/screenshot.jpg" width="360" height="780">
+
+GridCard
+======================
+Name | 截图
+--- | ---
+GridCard| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/gridcard/screenshot.jpg" width="360" height="780">
 
 Indicator
 ======================

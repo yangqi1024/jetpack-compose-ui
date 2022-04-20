@@ -29,7 +29,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.isUnspecified
+import androidx.compose.ui.graphics.takeOrElse
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -58,7 +58,13 @@ fun Steps(
     }
     when (direction) {
         Direction.Vertical -> StepsVertical(modifier, data, state, annotatedAction, annotatedStyle)
-        Direction.Horizontal -> StepsHorizontal(modifier, data, state, annotatedAction, annotatedStyle)
+        Direction.Horizontal -> StepsHorizontal(
+            modifier,
+            data,
+            state,
+            annotatedAction,
+            annotatedStyle
+        )
     }
 }
 
@@ -169,19 +175,15 @@ fun VerticalStepItem(
     annotatedStyle: SpanStyle,
 ) {
 
-    val textColorState by animateColorAsState(targetValue = textColor.let { color ->
-        if (color.isUnspecified) {
-            MaterialTheme.colors.onSurface.copy(alpha = if (status == StepStatus.Wait) ContentAlpha.medium else ContentAlpha.high)
-        } else {
-            color
-        }
+    val textColorState by animateColorAsState(targetValue = textColor.takeOrElse {
+        MaterialTheme.colors.onSurface.copy(
+            alpha = if (status == StepStatus.Wait) ContentAlpha.medium else ContentAlpha.high
+        )
     })
-    val secondaryTextColorState by animateColorAsState(targetValue = secondaryTextColor.let { color ->
-        if (color.isUnspecified) {
-            MaterialTheme.colors.onSurface.copy(alpha = if (status == StepStatus.Wait) ContentAlpha.disabled else ContentAlpha.medium)
-        } else {
-            color
-        }
+    val secondaryTextColorState by animateColorAsState(targetValue = secondaryTextColor.takeOrElse {
+        MaterialTheme.colors.onSurface.copy(
+            alpha = if (status == StepStatus.Wait) ContentAlpha.disabled else ContentAlpha.medium
+        )
     })
     ConstraintLayout(modifier) {
         val (iconRef, title, description, divider) = createRefs()
@@ -255,19 +257,15 @@ fun HorizontalStepItem(
     annotatedStyle: SpanStyle,
 ) {
 
-    val textColorState by animateColorAsState(targetValue = textColor.let { color ->
-        if (color.isUnspecified) {
-            MaterialTheme.colors.onSurface.copy(alpha = if (status == StepStatus.Wait) ContentAlpha.medium else ContentAlpha.high)
-        } else {
-            color
-        }
+    val textColorState by animateColorAsState(targetValue = textColor.takeOrElse {
+        MaterialTheme.colors.onSurface.copy(
+            alpha = if (status == StepStatus.Wait) ContentAlpha.medium else ContentAlpha.high
+        )
     })
-    val secondaryTextColorState by animateColorAsState(targetValue = secondaryTextColor.let { color ->
-        if (color.isUnspecified) {
-            MaterialTheme.colors.onSurface.copy(alpha = if (status == StepStatus.Wait) ContentAlpha.disabled else ContentAlpha.medium)
-        } else {
-            color
-        }
+    val secondaryTextColorState by animateColorAsState(targetValue = secondaryTextColor.takeOrElse {
+        MaterialTheme.colors.onSurface.copy(
+            alpha = if (status == StepStatus.Wait) ContentAlpha.disabled else ContentAlpha.medium
+        )
     })
     ConstraintLayout(modifier) {
         val (iconRef, title, description, divider) = createRefs()

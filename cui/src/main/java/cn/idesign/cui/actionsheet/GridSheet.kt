@@ -28,8 +28,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.isUnspecified
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.takeOrElse
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -107,12 +107,10 @@ fun GridSheet(
                             Text(
                                 text = item.text,
                                 style = textTextStyle,
-                                color = textColor.let { color ->
-                                    if (color.isUnspecified) {
-                                        MaterialTheme.colors.onSurface.copy(alpha = ContentAlpha.high)
-                                    } else {
-                                        color
-                                    }
+                                color = textColor.takeOrElse {
+                                    MaterialTheme.colors.onSurface.copy(
+                                        alpha = ContentAlpha.high
+                                    )
                                 },
                                 modifier = Modifier
                                     .padding(top = 6.dp)
@@ -144,12 +142,10 @@ fun GridSheet(
                             Text(
                                 text = item.text,
                                 style = textTextStyle,
-                                color = textColor.let { color ->
-                                    if (color.isUnspecified) {
-                                        MaterialTheme.colors.onSurface.copy(alpha = ContentAlpha.high)
-                                    } else {
-                                        color
-                                    }
+                                color = textColor.takeOrElse {
+                                    MaterialTheme.colors.onSurface.copy(
+                                        alpha = ContentAlpha.high
+                                    )
                                 },
                                 modifier = Modifier
                                     .padding(top = 6.dp)

@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.isUnspecified
+import androidx.compose.ui.graphics.takeOrElse
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 
@@ -50,13 +50,7 @@ fun ActionSheetItem(
         text?.let {
             Text(
                 text = it,
-                color = textColor.let { color ->
-                    if (color.isUnspecified) {
-                        MaterialTheme.colors.onSurface.copy(alpha = ContentAlpha.high)
-                    }else{
-                        color
-                    }
-                },
+                color = textColor.takeOrElse { MaterialTheme.colors.onSurface.copy(alpha = ContentAlpha.high) },
                 modifier = textModifier,
                 style = textTextStyle
             )
@@ -64,14 +58,7 @@ fun ActionSheetItem(
         secondaryText?.let {
             Text(
                 text = it,
-                color = secondaryTextColor.let { color ->
-                    if (color.isUnspecified) {
-                        MaterialTheme.colors.onSurface.copy(alpha = ContentAlpha.disabled)
-                    }else{
-                        color
-                    }
-
-                },
+                color = secondaryTextColor.takeOrElse { MaterialTheme.colors.onSurface.copy(alpha = ContentAlpha.disabled) },
                 modifier = secondaryTextModifier,
                 style = secondaryTextTextStyle
             )

@@ -57,9 +57,8 @@ fun AnnotatedText(
         style = textStyle,
         onClick = { offset ->
             annotatedActions.forEach { annotated ->
-                val regex = annotated.regex
                 val action = annotated.action
-                val pattern = Pattern.compile(regex)
+                val pattern = Pattern.compile(annotated.regex)
                 val matcher = pattern.matcher(annotationText)
                 if (matcher.find()) {
                     val tag = matcher.group()
