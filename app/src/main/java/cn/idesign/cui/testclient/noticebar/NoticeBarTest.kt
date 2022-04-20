@@ -12,6 +12,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import cn.idesign.cui.noticebar.NoticeBar
 
@@ -23,10 +24,9 @@ fun NoticeBarTest() {
                 text = "基础用法",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 5.dp)
-                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
                     .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
+                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
             NoticeBar(text = "这是 NoticeBar 通告栏")
         }
@@ -36,10 +36,9 @@ fun NoticeBarTest() {
                 text = "单行用法",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 5.dp)
-                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
                     .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
+                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
             NoticeBar(text = "[单行] 这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏", singleLine = true)
         }
@@ -49,10 +48,9 @@ fun NoticeBarTest() {
                 text = "多行用法",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 5.dp)
-                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
                     .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
+                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
             NoticeBar(text = "[多行] 这是NoticeBar通告栏，这是NoticeBar通告栏，这是NoticeBar通告栏")
         }
@@ -62,10 +60,9 @@ fun NoticeBarTest() {
                 text = "前缀图标",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 5.dp)
-                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
                     .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
+                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
             NoticeBar(text = "这是 NoticeBar 通告栏", prefixIcon = Icons.Default.Notifications)
         }
@@ -75,10 +72,9 @@ fun NoticeBarTest() {
                 text = "关闭图标",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 5.dp)
-                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
                     .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
+                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
             NoticeBar(
                 text = "这是 NoticeBar 通告栏",
@@ -92,16 +88,15 @@ fun NoticeBarTest() {
                 text = "自定义样式",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 5.dp)
-                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
                     .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
+                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
             NoticeBar(
                 text = "这是 NoticeBar 通告栏",
                 prefixIcon = Icons.Default.Notifications,
                 showClose = true,
-                color = MaterialTheme.colors.primary.copy(ContentAlpha.medium)
+                color = MaterialTheme.colors.secondary
             )
         }
 

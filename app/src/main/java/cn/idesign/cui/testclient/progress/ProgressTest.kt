@@ -19,6 +19,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import cn.idesign.cui.progress.CircleProgress
 
@@ -32,10 +33,9 @@ fun ProgressTest() {
                 text = "圆形进度条",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 5.dp)
-                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
                     .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
+                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
             CircleProgress(
                 progress = progress,
@@ -47,10 +47,9 @@ fun ProgressTest() {
                 text = "自定义颜色",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 5.dp)
-                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
                     .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
+                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 CircleProgress(
@@ -71,10 +70,9 @@ fun ProgressTest() {
                 text = "自定义宽度",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 5.dp)
-                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
                     .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
+                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
             CircleProgress(
                 progress = progress,
@@ -87,10 +85,9 @@ fun ProgressTest() {
                 text = "自定义形状",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 5.dp)
-                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
                     .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
+                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 CircleProgress(

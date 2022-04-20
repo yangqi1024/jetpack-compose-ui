@@ -29,7 +29,7 @@ class CollapseActivity : ComponentActivity() {
                             backgroundColor = MaterialTheme.colors.primary,
                         )
                     },
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier.fillMaxSize(),
                 ) {
                         CollapseTest()
                 }

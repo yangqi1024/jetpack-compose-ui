@@ -46,6 +46,7 @@ import java.util.*
 @OptIn(ExperimentalStdlibApi::class, androidx.compose.foundation.ExperimentalFoundationApi::class)
 @Composable
 fun SelectCity(
+    modifier: Modifier = Modifier,
     cityList: List<CityModel>,
     hotCityList: List<CityModel> = Collections.emptyList(),
     onSelect: ((city: CityModel) -> Unit)? = null
@@ -59,7 +60,7 @@ fun SelectCity(
     val searchList by remember(searchValue) {
         derivedStateOf { cityList.filter { it.city.contains(searchValue) } }
     }
-    Column {
+    Column(modifier=Modifier.background(MaterialTheme.colors.surface)) {
         Box( modifier = Modifier.padding(10.dp)) {
             SearchBar(value = searchValue,onActionClick = {
                 searchValue = it

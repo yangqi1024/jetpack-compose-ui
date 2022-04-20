@@ -17,17 +17,27 @@ fun StatefulLayout(
     modifier: Modifier = Modifier,
     state: StatefulState = rememberStatefulState(),
     event: Event = Event(),
-    errorLayout: @Composable (onClick: (() -> Unit)?) -> Unit = { Error(onClick = it) },
+    errorLayout: @Composable (onClick: (() -> Unit)?) -> Unit = { Error(modifier, onClick = it) },
     emptyLayout: @Composable () -> Unit = { Empty() },
-    netErrorLayout: @Composable (onClick: (() -> Unit)?) -> Unit = { NetError(onClick = it) },
-    locationOffLayout: @Composable (onClick: (() -> Unit)?) -> Unit = { LocationOff(onClick = it) },
-    loadingLayout: @Composable () -> Unit = { Loading() },
+    netErrorLayout: @Composable (onClick: (() -> Unit)?) -> Unit = {
+        NetError(
+            modifier,
+            onClick = it
+        )
+    },
+    locationOffLayout: @Composable (onClick: (() -> Unit)?) -> Unit = {
+        LocationOff(
+            modifier,
+            onClick = it
+        )
+    },
+    loadingLayout: @Composable () -> Unit = { Loading(modifier) },
     content: @Composable () -> Unit,
 ) {
     Log.d("StatefulLayout", "StatefulLayout")
     Box(modifier) {
         when (state.currentState) {
-            StatefulStatus.Content -> content()
+            StatefulStatus.Content -> Box(modifier) { content() }
             StatefulStatus.Loading -> loadingLayout()
             StatefulStatus.Empty -> emptyLayout()
             StatefulStatus.Error -> errorLayout(event.onErrorRetry)

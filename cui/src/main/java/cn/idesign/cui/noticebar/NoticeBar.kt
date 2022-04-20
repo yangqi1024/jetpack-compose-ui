@@ -36,8 +36,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun NoticeBar(
     text: String,
-    color: Color = Color(0xFFDE8C17),
-    backgroundColor: Color = Color(0xFFFCF6ED),
+    color: Color = MaterialTheme.colors.primary,
+    backgroundColor: Color = MaterialTheme.colors.surface,
     singleLine: Boolean = false,
     showClose: Boolean = false,
     scrollable: Boolean = false,

@@ -17,6 +17,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 
@@ -42,10 +43,9 @@ fun SearchBarTest() {
                 text = "基础用法",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 5.dp)
-                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
                     .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
+                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
             SearchBar(value = commonSearchValue) { commonSearchValue = it }
         }
@@ -54,10 +54,9 @@ fun SearchBarTest() {
                 text = "显示按钮",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 5.dp)
-                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
                     .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
+                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
             SearchBar(value = showActionValue, showAction = true) { showActionValue = it }
         }
@@ -67,10 +66,9 @@ fun SearchBarTest() {
                 text = "自定义按钮文字",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 5.dp)
-                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
                     .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
+                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
             SearchBar(value = customActionValue, actionText = "搜一下") { customActionValue = it }
         }
@@ -79,10 +77,9 @@ fun SearchBarTest() {
                 text = "自定义搜索类型",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 5.dp)
-                    .background(color = MaterialTheme.colors.primary.copy(ContentAlpha.medium))
                     .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onPrimary.copy(ContentAlpha.high)
+                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
+                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
             SearchBar(
                 value = numberSearchValue,

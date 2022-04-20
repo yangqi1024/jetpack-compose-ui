@@ -90,7 +90,7 @@ fun ActionSheet(
             Box(
                 Modifier
                     .clip(RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp))
-                    .background(MaterialTheme.colors.background)
+                    .background(MaterialTheme.colors.surface)
             ) {
                 Column {
                     header?.let {

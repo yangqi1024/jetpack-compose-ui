@@ -53,10 +53,10 @@ import androidx.constraintlayout.compose.MotionLayout
 )
 @Composable
 fun SearchBar(
+    modifier: Modifier = Modifier,
     actionText: String = "搜索",
     value: String,
     placeholder: String = "请输入搜索信息",
-    modifier: Modifier = Modifier,
     showAction: Boolean = false,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,

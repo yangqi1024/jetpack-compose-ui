@@ -21,7 +21,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import cn.idesign.cui.actionsheet.*
+import cn.idesign.cui.actionsheet.Action
+import cn.idesign.cui.actionsheet.ActionSheet
+import cn.idesign.cui.actionsheet.GridSheet
+import cn.idesign.cui.actionsheet.GridSheetItem
 import cn.idesign.cui.bottomsheet.BottomSheetState
 import cn.idesign.cui.bottomsheet.rememberBottomSheetState
 import cn.idesign.cui.testclient.R
@@ -48,7 +51,7 @@ fun ActionSheetTest() {
             text = { Text("基本用法") },
             modifier = Modifier
                 .height(50.dp)
-                .background(MaterialTheme.colors.background)
+                .background(MaterialTheme.colors.surface)
                 .clickable {
                     scope.launch {
                         simpleState.show()
@@ -60,7 +63,7 @@ fun ActionSheetTest() {
             text = { Text("文本居左") },
             modifier = Modifier
                 .height(50.dp)
-                .background(MaterialTheme.colors.background)
+                .background(MaterialTheme.colors.surface)
                 .clickable {
                     scope.launch {
                         leftState.show()
@@ -73,7 +76,7 @@ fun ActionSheetTest() {
             text = { Text("包含标题") },
             modifier = Modifier
                 .height(50.dp)
-                .background(MaterialTheme.colors.background)
+                .background(MaterialTheme.colors.surface)
                 .clickable {
                     scope.launch {
                         titleState.show()
@@ -86,7 +89,7 @@ fun ActionSheetTest() {
             text = { Text("包含取消按钮") },
             modifier = Modifier
                 .height(50.dp)
-                .background(MaterialTheme.colors.background)
+                .background(MaterialTheme.colors.surface)
                 .clickable {
                     scope.launch {
                         cancelState.show()
@@ -99,7 +102,7 @@ fun ActionSheetTest() {
             text = { Text("包含描述") },
             modifier = Modifier
                 .height(50.dp)
-                .background(MaterialTheme.colors.background)
+                .background(MaterialTheme.colors.surface)
                 .clickable {
                     scope.launch {
                         descriptionState.show()
@@ -112,7 +115,7 @@ fun ActionSheetTest() {
             text = { Text("自定义颜色") },
             modifier = Modifier
                 .height(50.dp)
-                .background(MaterialTheme.colors.background)
+                .background(MaterialTheme.colors.surface)
                 .clickable {
                     scope.launch {
                         colorState.show()
@@ -125,7 +128,7 @@ fun ActionSheetTest() {
             text = { Text("Gird分享") },
             modifier = Modifier
                 .height(50.dp)
-                .background(MaterialTheme.colors.background)
+                .background(MaterialTheme.colors.surface)
                 .clickable {
                     scope.launch {
                         gridState.show()

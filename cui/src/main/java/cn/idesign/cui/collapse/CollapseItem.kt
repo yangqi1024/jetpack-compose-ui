@@ -38,6 +38,7 @@ fun CollapseItem(
     title: String,
     open: Boolean = false,
     titleModifier: Modifier = Modifier,
+    contentModifier: Modifier = Modifier,
     onClick: ((open: Boolean) -> Unit)? = null,
     content: @Composable () -> Unit
 ) {
@@ -58,8 +59,8 @@ fun CollapseItem(
                     _open = !_open
                     onClick?.let { it(_open) }
                 }
-                .padding(horizontal = 10.dp, vertical = 15.dp)
                 .background(color = MaterialTheme.colors.surface.copy(ContentAlpha.medium))
+                .padding(horizontal = 10.dp, vertical = 15.dp)
                 .then(titleModifier),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
@@ -86,7 +87,7 @@ fun CollapseItem(
             exit = shrinkVertically() + fadeOut()
         ) {
             Column(
-                modifier = Modifier.padding(10.dp)
+                modifier = Modifier.background(MaterialTheme.colors.surface).padding(10.dp).then(contentModifier)
             ) {
                 content()
             }
