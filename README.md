@@ -34,6 +34,7 @@
 - [SearchBar](#SearchBar)
 - [SelectCity](#SelectCity)
 - [StatefulLayout](#StatefulLayout)
+- [Stepper](#Stepper)
 - [Steps](#Steps)
 - [VerifyCode](#VerifyCode)
 
@@ -122,6 +123,12 @@ StatefulLayout
 Name | 截图
 --- | ---
 StatefulLayout| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/statefullayout/screenshot.jpg" width="324" height="702">
+
+Stepper
+======================
+Name | 截图
+--- | ---
+Stepper| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/stepper/screenshot.jpg" width="324" height="702">
 
 Steps
 ======================

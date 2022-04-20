@@ -108,7 +108,7 @@ fun VerifyCode(
                     textInputService?.startInput(
                         value = TextFieldValue(""),
                         imeOptions = ImeOptions.Default.copy(
-                            keyboardType = KeyboardType.Number,
+                            keyboardType = KeyboardType.NumberPassword,
                             imeAction = ImeAction.Done
                         ),
                         onEditCommand = { commandList ->
