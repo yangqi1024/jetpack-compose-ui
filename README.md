@@ -43,97 +43,97 @@ ActionSheet
 ======================
 Name | 截图
 --- | ---
-ActionSheet| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/actionsheet/screenshot.jpg" width="360" height="780">
+ActionSheet| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/actionsheet/screenshot.jpg" style="zoom:30%">
 
 AnnotatedText
 ======================
 Name | 截图
 --- | ---
-AnnotatedText| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/annotatedtext/screenshot.jpg" width="360" height="780">
+AnnotatedText| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/annotatedtext/screenshot.jpg" style="zoom:30%">
 
 Banner
 ======================
 Name | 截图
 --- | ---
-Banner| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/banner/screenshot.jpg" width="360" height="780">
+Banner| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/banner/screenshot.jpg" style="zoom:30%">
 
 Collapse
 ======================
 Name | 截图
 --- | ---
-Collapse| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/collapse/screenshot.jpg" width="360" height="780">
+Collapse| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/collapse/screenshot.jpg" style="zoom:30%">
 
 Curtain
 ======================
 Name | 截图
 --- | ---
-Curtain| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/curtain/screenshot.jpg" width="360" height="780">
+Curtain| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/curtain/screenshot.jpg" style="zoom:30%">
 
 GridCard
 ======================
 Name | 截图
 --- | ---
-GridCard| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/gridcard/screenshot.jpg" width="360" height="780">
+GridCard| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/gridcard/screenshot.jpg" style="zoom:30%">
 
 Indicator
 ======================
 Name | 截图
 --- | ---
-Indicator| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/indicator/screenshot.jpg" width="360" height="780">
+Indicator| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/indicator/screenshot.jpg" style="zoom:30%">
 
 NoticeBar
 ======================
 Name | 截图
 --- | ---
-NoticeBar| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/noticebar/screenshot.jpg" width="360" height="780">
+NoticeBar| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/noticebar/screenshot.jpg" style="zoom:30%">
 
 Preview
 ======================
 Name | 截图
 --- | ---
-Preview| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/preview/screenshot.jpg" width="360" height="780">
+Preview| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/preview/screenshot.jpg" style="zoom:30%">
 
 PrivacyPolicy
 ======================
 Name | 截图
 --- | ---
-PrivacyPolicy| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/privacypolicy/screenshot.jpg" width="360" height="780">
+PrivacyPolicy| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/privacypolicy/screenshot.jpg" style="zoom:30%">
 
 Progress
 ======================
 Name | 截图
 --- | ---
-Progress| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/progress/screenshot.jpg" width="360" height="780">
+Progress| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/progress/screenshot.jpg" style="zoom:30%">
 
 SearchBar
 ======================
 Name | 截图
 --- | ---
-SearchBar| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/searchbar/screenshot.jpg" width="360" height="780">
+SearchBar| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/searchbar/screenshot.jpg" style="zoom:30%">
 
 SelectCity
 ======================
 Name | 截图
 --- | ---
-SelectCity| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/selectcity/screenshot.jpg" width="360" height="780">
+SelectCity| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/selectcity/screenshot.jpg" style="zoom:30%">
 
 StatefulLayout
 ======================
 Name | 截图
 --- | ---
-StatefulLayout| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/statefullayout/screenshot.jpg" width="360" height="780">
+StatefulLayout| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/statefullayout/screenshot.jpg" style="zoom:30%">
 
 Steps
 ======================
 Name | 截图
 --- | ---
-Steps| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/steps/screenshot.jpg" width="360" height="780">
+Steps| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/steps/screenshot.jpg" style="zoom:30%">
 
 VerifyCode
 ======================
 Name | 截图
 --- | ---
-VerifyCode| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/verifycode/screenshot.jpg" width="360" height="780">
+VerifyCode| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/verifycode/screenshot.jpg" style="zoom:30%">
 
 
 ## 致谢
