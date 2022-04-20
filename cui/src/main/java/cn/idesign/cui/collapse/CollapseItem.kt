@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.ContentAlpha
@@ -55,14 +56,16 @@ fun CollapseItem(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
+                .height(46.dp)
                 .clickable {
                     _open = !_open
                     onClick?.let { it(_open) }
                 }
-                .background(color = MaterialTheme.colors.surface.copy(ContentAlpha.medium))
-                .padding(horizontal = 10.dp, vertical = 15.dp)
+                .background(color = MaterialTheme.colors.surface.copy(ContentAlpha.high))
+                .padding(horizontal = 10.dp)
                 .then(titleModifier),
-            horizontalArrangement = Arrangement.SpaceBetween
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = title,
@@ -75,7 +78,7 @@ fun CollapseItem(
                 modifier = Modifier
                     .rotate(rotate)
                     .size(16.dp),
-                tint = MaterialTheme.colors.onSurface.copy(ContentAlpha.high)
+                tint = MaterialTheme.colors.onSurface.copy(ContentAlpha.medium)
             )
         }
         Divider()

@@ -71,12 +71,13 @@ fun Curtain(
             val (banner, indicator, close) = createRefs()
             Banner(
                 count = data.size,
-                modifier = Modifier.constrainAs(banner) {
-                    start.linkTo(parent.start)
-                    end.linkTo(parent.end)
-                    top.linkTo(parent.top)
-                    bottom.linkTo(parent.bottom)
-                },
+                modifier = Modifier
+                    .constrainAs(banner) {
+                        start.linkTo(parent.start)
+                        end.linkTo(parent.end)
+                        top.linkTo(parent.top)
+                        bottom.linkTo(parent.bottom)
+                    },
                 state = bannerState
             ) { page ->
                 NetworkImage(
@@ -97,8 +98,10 @@ fun Curtain(
                                     )
                                 }
                             }
-                        ),
-                    contentScale = ContentScale.Fit
+                        )
+                        .clip(RoundedCornerShape(4.dp)),
+
+                    contentScale = ContentScale.FillBounds
                 )
             }
             if (data.size > 1) {
