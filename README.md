@@ -23,6 +23,7 @@
 - [ActionSheet](#ActionSheet)
 - [AnnotatedText](#AnnotatedText)
 - [Banner](#Banner)
+- [Cell](#Cell)
 - [Collapse](#Collapse)
 - [Curtain](#Curtain)
 - [GridCard](#GridCard)
@@ -57,6 +58,12 @@ Banner
 Name | 截图
 --- | ---
 Banner| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/banner/screenshot.jpg" width="324" height="702">
+
+Cell
+======================
+Name | 截图
+--- | ---
+Cell| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/cell/screenshot.jpg" width="324" height="702">
 
 Collapse
 ======================

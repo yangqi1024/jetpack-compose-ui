@@ -222,6 +222,17 @@
                 <category android:name="cn.idesign.cui.testclient.SAMPLE_CODE" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="cn.idesign.cui.testclient.cell.CellActivity"
+            android:exported="true"
+            android:label="Cell示例"
+            android:theme="@style/Theme.CUI">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="cn.idesign.cui.testclient.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
