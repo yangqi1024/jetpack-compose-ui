@@ -124,26 +124,33 @@ fun Cell(
     rightExtra: (@Composable () -> Unit)? = null,
     showDivider: Boolean = false,
 ) {
-    Box(
+    Row(
         Modifier
             .fillMaxWidth()
             .then(modifier),
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        Row(
-            Modifier.fillMaxSize(),
-            verticalAlignment = Alignment.CenterVertically
+        icon?.invoke()
+        Box(
+            Modifier.fillMaxWidth()
         ) {
-            icon?.invoke()
-            Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.Center) {
-                text()
-                secondaryText?.invoke()
+            Row(
+                Modifier.fillMaxSize(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+
+                Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.Center) {
+                    text()
+                    secondaryText?.invoke()
+                }
+                rightExtra?.invoke()
+                rightComponent?.invoke()
             }
-            rightExtra?.invoke()
-            rightComponent?.invoke()
+            if (showDivider) {
+                Divider(modifier = Modifier.align(Alignment.BottomStart))
+            }
         }
-        if (showDivider) {
-            Divider(modifier = Modifier.align(Alignment.BottomStart))
-        }
+
     }
 
 

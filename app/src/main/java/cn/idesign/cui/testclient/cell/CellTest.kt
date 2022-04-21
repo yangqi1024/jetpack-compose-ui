@@ -52,8 +52,14 @@ fun CellTest() {
                 style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
             Column() {
-                Cell(text = "朋友圈", showDivider = true)
-                Cell(text = "相册")
+                Cell(
+                    text = "朋友圈", showDivider = true,
+                    iconPainter = painterResource(id = R.drawable.acivity)
+                )
+                Cell(
+                    text = "相册",
+                    iconPainter = painterResource(id = R.drawable.acivity)
+                )
             }
         }
         item {
@@ -78,8 +84,7 @@ fun CellTest() {
             )
             Cell(
                 text = "朋友圈",
-                secondaryText = "摘要信息",
-                iconPainter = painterResource(id = R.drawable.acivity)
+                secondaryText = "摘要信息"
             )
         }
 
@@ -95,7 +100,6 @@ fun CellTest() {
             Cell(
                 text = "朋友圈",
                 rightText = "详细信息",
-                iconPainter = painterResource(id = R.drawable.acivity)
             )
         }
 
