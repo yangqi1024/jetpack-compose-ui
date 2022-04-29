@@ -37,6 +37,7 @@
 - [StatefulLayout](#StatefulLayout)
 - [Stepper](#Stepper)
 - [Steps](#Steps)
+- [TimeSelect](#TimeSelect)
 - [VerifyCode](#VerifyCode)
 
 ## 🔥 组件
@@ -142,6 +143,12 @@ Steps
 Name | 截图
 --- | ---
 Steps| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/steps/screenshot.jpg" width="324" height="702">
+
+TimeSelect
+======================
+Name | 截图
+--- | ---
+TimeSelect| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/timeselect/screenshot.jpg" width="324" height="702">
 
 VerifyCode
 ======================

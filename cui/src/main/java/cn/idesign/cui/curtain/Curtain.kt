@@ -15,6 +15,7 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -66,6 +67,7 @@ fun Curtain(
     val widthDp = size.width
     val heightDp = size.height
     val bannerState = rememberBannerState()
+    val clickState = rememberUpdatedState(onClick)
     Curtain(state = state) {
         ConstraintLayout(Modifier.width(widthDp)) {
             val (banner, indicator, close) = createRefs()
@@ -90,13 +92,9 @@ fun Curtain(
                         .clickable(
                             indication = null,
                             interactionSource = remember { MutableInteractionSource() },
-                            enabled = onClick != null,
+                            enabled = clickState.value != null,
                             onClick = {
-                                onClick?.let {
-                                    it(
-                                        data[page]
-                                    )
-                                }
+                                clickState.value?.invoke(data[page])
                             }
                         )
                         .clip(RoundedCornerShape(4.dp)),
