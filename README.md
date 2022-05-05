@@ -35,6 +35,7 @@
 - [SearchBar](#SearchBar)
 - [Segmented](#Segmented)
 - [SelectCity](#SelectCity)
+- [Skeleton](#Skeleton)
 - [StatefulLayout](#StatefulLayout)
 - [Stepper](#Stepper)
 - [Steps](#Steps)
@@ -132,6 +133,12 @@ SelectCity
 Name | 截图
 --- | ---
 SelectCity| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/selectcity/screenshot.jpg" width="324" height="702">
+
+Skeleton
+======================
+Name | 截图
+--- | ---
+Skeleton| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/skeleton/screenshot.jpg" width="324" height="702">
 
 StatefulLayout
 ======================
