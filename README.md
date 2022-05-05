@@ -33,6 +33,7 @@
 - [PrivacyPolicy](#PrivacyPolicy)
 - [Progress](#Progress)
 - [SearchBar](#SearchBar)
+- [Segmented](#Segmented)
 - [SelectCity](#SelectCity)
 - [StatefulLayout](#StatefulLayout)
 - [Stepper](#Stepper)
@@ -120,6 +121,12 @@ Name | 截图
 --- | ---
 SearchBar| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/searchbar/screenshot.jpg" width="324" height="702">
 
+Segmented
+======================
+Name | 截图
+--- | ---
+Segmented| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/segmented/screenshot.jpg" width="324" height="702">
+
 SelectCity
 ======================
 Name | 截图
@@ -162,5 +169,6 @@ Compose UI组件参考和引用的部分开源库如下：
 
 - [BannerViewPager](https://github.com/zhpanvip/BannerViewPager)
 - [accompanist](https://github.com/google/accompanist)
+- [ant-design](https://github.com/ant-design/ant-design)
 
 感谢以上开源库的作者
