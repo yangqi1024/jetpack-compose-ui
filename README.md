@@ -29,6 +29,7 @@
 - [GridCard](#GridCard)
 - [Indicator](#Indicator)
 - [NoticeBar](#NoticeBar)
+- [NumberKeyboard](#NumberKeyboard)
 - [Preview](#Preview)
 - [PrivacyPolicy](#PrivacyPolicy)
 - [Progress](#Progress)
@@ -97,6 +98,12 @@ NoticeBar
 Name | 截图
 --- | ---
 NoticeBar| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/noticebar/screenshot.jpg" width="324" height="702">
+
+NumberKeyboard
+======================
+Name | 截图
+--- | ---
+NumberKeyboard| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/numberkeyboard/screenshot.jpg" width="324" height="702">
 
 Preview
 ======================
@@ -177,5 +184,6 @@ Compose UI组件参考和引用的部分开源库如下：
 - [BannerViewPager](https://github.com/zhpanvip/BannerViewPager)
 - [accompanist](https://github.com/google/accompanist)
 - [ant-design](https://github.com/ant-design/ant-design)
+- [nutui](https://github.com/jdf2e/nutui)
 
 感谢以上开源库的作者

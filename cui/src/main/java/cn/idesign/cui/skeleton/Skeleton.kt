@@ -1,6 +1,8 @@
 package cn.idesign.cui.skeleton
 
+import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -21,7 +23,6 @@ fun Skeleton(
     Skeleton(
         modifier = modifier,
         loading = loading,
-        animated = animated,
         content = content,
         defaultContent = {
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -42,48 +43,17 @@ fun Skeleton(
 fun Skeleton(
     modifier: Modifier = Modifier,
     loading: Boolean = true,
-    animated: Boolean = false,
     defaultContent: @Composable () -> Unit,
     content: (@Composable () -> Unit)? = null,
 ) {
-//    var width by remember {
-//        mutableStateOf(0)
-//    }
-//    val transition = rememberInfiniteTransition()
-//    val translateAnim by transition.animateFloat(
-//        initialValue = 0f,
-//        targetValue = width.toFloat(),
-//        animationSpec = infiniteRepeatable(
-//            tween(durationMillis = 1400, easing = FastOutSlowInEasing),
-//            RepeatMode.Restart
-//        )
-//    )
-//    val color = Color(190, 190, 190).copy(0.2f)
-//    val shimmerColorShades = listOf(
-//        color.copy(0.25f),
-//        color.copy(0.37f),
-//        color.copy(0.63f)
-//    )
-//    val brush = Brush.linearGradient(
-//        colors = shimmerColorShades,
-//        start = Offset(0f, 0f),
-//        end = Offset(translateAnim, 0f)
-//    )
-//    Spacer(
-//        modifier = Modifier
-//            .fillMaxWidth()
-//            .size(250.dp)
-//            .onSizeChanged { size ->
-//                width = size.width * 4
-//            }
-//            .background(brush = brush)
-//    )
-
-//    val skeletonScopeImpl = SkeletonScopeImpl().apply(defaultContent)
-    if (loading) {
-        defaultContent()
-    } else {
-        content?.invoke()
+    Box(modifier = modifier) {
+        Crossfade(targetState = loading) { isLoading ->
+            if (isLoading) {
+                defaultContent()
+            } else {
+                content?.invoke()
+            }
+        }
     }
 }
 
