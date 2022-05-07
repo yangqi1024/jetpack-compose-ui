@@ -33,6 +33,7 @@
 - [Preview](#Preview)
 - [PrivacyPolicy](#PrivacyPolicy)
 - [Progress](#Progress)
+- [Rate](#Rate)
 - [SearchBar](#SearchBar)
 - [Segmented](#Segmented)
 - [SelectCity](#SelectCity)
@@ -122,6 +123,12 @@ Progress
 Name | 截图
 --- | ---
 Progress| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/progress/screenshot.jpg" width="324" height="702">
+
+Rate
+======================
+Name | 截图
+--- | ---
+Rate| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/rate/screenshot.jpg" width="324" height="702">
 
 SearchBar
 ======================
