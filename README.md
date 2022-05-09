@@ -41,6 +41,7 @@
 - [StatefulLayout](#StatefulLayout)
 - [Stepper](#Stepper)
 - [Steps](#Steps)
+- [Swipe](#Swipe)
 - [TimeSelect](#TimeSelect)
 - [VerifyCode](#VerifyCode)
 
@@ -171,6 +172,12 @@ Steps
 Name | 截图
 --- | ---
 Steps| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/steps/screenshot.jpg" width="324" height="702">
+
+Swipe
+======================
+Name | 截图
+--- | ---
+Swipe| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/swipe/screenshot.jpg" width="324" height="702">
 
 TimeSelect
 ======================
