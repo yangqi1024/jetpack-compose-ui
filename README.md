@@ -13,6 +13,18 @@
 
 </div>
 
+## 接入
+项目根目录下build.gradle添加
+```
+repositories {
+        mavenCentral()
+    }
+```
+项目build.gradle中添加依赖
+```
+implementation 'cn.itpiggy:compose-ui:1.0.0'
+```
+
 ## ✨ 特性
 
 - 开箱即用的高质量 Compose 组件
