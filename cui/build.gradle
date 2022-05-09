@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
+    id 'com.vanniktech.maven.publish'
 }
 
 android {
@@ -70,5 +71,14 @@ dependencies {
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
     kotlinOptions {
         freeCompilerArgs += "-opt-in=androidx.constraintlayout.compose.ExperimentalMotionApi"
+    }
+}
+
+
+allprojects {
+    plugins.withId("com.vanniktech.maven.publish") {
+        mavenPublish {
+            sonatypeHost = "S01"
+        }
     }
 }

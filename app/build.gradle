@@ -58,8 +58,8 @@ dependencies {
 
     implementation 'com.squareup.moshi:moshi:1.13.0'
     ksp("com.squareup.moshi:moshi-kotlin-codegen:1.13.0")
-
-    implementation project(path: ':cui')
+    implementation 'cn.itpiggy:compose-ui:1.0.0'
+//    implementation project(path: ':cui')
 
 
     testImplementation 'junit:junit:4.13.2'

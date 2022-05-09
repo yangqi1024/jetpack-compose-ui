@@ -96,9 +96,7 @@ fun ActionSheet(
                     header?.let {
                         it()
                     }
-                    content?.let {
-                        it()
-                    }
+                    content()
                     footer?.let { it() }
                 }
             }
