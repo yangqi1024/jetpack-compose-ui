@@ -1,6 +1,7 @@
 package cn.idesign.cui.swipe
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -8,9 +9,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.FractionalThreshold
+import androidx.compose.material.SwipeableState
 import androidx.compose.material.rememberSwipeableState
 import androidx.compose.material.swipeable
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -27,6 +30,9 @@ import androidx.compose.ui.unit.IntOffset
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
+/**
+ * 左滑删除组件
+ */
 @SuppressLint("RememberReturnType")
 @OptIn(ExperimentalComposeUiApi::class, androidx.compose.material.ExperimentalMaterialApi::class)
 @Composable
@@ -34,6 +40,7 @@ fun Swipe(
     state: SwipeState = rememberSwipeState(),
     threshold: Float = 0.3f,
     direction: SwipeDirection = SwipeDirection.RightToLeft,
+    onChange: ((open: Boolean) -> Unit)? = null,
     background: @Composable () -> Unit,
     content: @Composable () -> Unit,
 ) {
@@ -46,8 +53,10 @@ fun Swipe(
     var backgroundWidthPx by remember {
         mutableStateOf(0)
     }
+
     val scope = rememberCoroutineScope()
     val swipeableState = rememberSwipeableState(0)
+    state.swipeableState = swipeableState
     val anchors by remember(backgroundWidthPx, direction) {
         if (direction == SwipeDirection.RightToLeft) {
             mutableStateOf(mapOf(0f to 0, -backgroundWidthPx.toFloat() to 1))
@@ -56,17 +65,19 @@ fun Swipe(
         }
     }
 
-    remember(state.currentValue) {
+    remember(swipeableState.currentValue) {
+        Log.d("Swipe", "swipeableState.currentValue:${swipeableState.currentValue}")
+        onChange?.invoke(swipeableState.currentValue == 1)
+    }
+
+    LaunchedEffect(key1 = Unit) {
         when (state.currentValue) {
             SwipeValue.Hidden -> scope.launch {
                 swipeableState.animateTo(0)
             }
             SwipeValue.Open -> scope.launch { swipeableState.animateTo(1) }
         }
-
     }
-
-
     val swipeModifier = if (backgroundWidthPx > 0) Modifier.swipeable(
         state = swipeableState,
         anchors = anchors,
@@ -138,23 +149,24 @@ fun rememberSwipeState(
 class SwipeState(
     val initialValue: SwipeValue,
 ) {
-
+    internal lateinit var swipeableState: SwipeableState<Int>
     private var _currentValue: SwipeValue by mutableStateOf(initialValue)
-
     val currentValue: SwipeValue
         get() = _currentValue
 
-    fun open() {
-        if (_currentValue != SwipeValue.Open) {
-            _currentValue = SwipeValue.Open
+    suspend fun open() {
+        if (swipeableState.currentValue != 1) {
+            swipeableState.animateTo(1)
         }
     }
 
-    fun close() {
-        if (_currentValue != SwipeValue.Hidden) {
-            _currentValue = SwipeValue.Hidden
+    suspend fun close() {
+        if (swipeableState.currentValue != 0) {
+            swipeableState.animateTo(0)
         }
     }
+
+    fun isOpen(): Boolean = swipeableState.currentValue == 1
 
     companion object {
         val SAVER: Saver<SwipeState, *> = Saver(

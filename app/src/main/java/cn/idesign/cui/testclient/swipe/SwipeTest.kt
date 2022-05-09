@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,6 +28,7 @@ import cn.idesign.cui.cell.Cell
 import cn.idesign.cui.swipe.Swipe
 import cn.idesign.cui.swipe.SwipeDirection
 import cn.idesign.cui.swipe.rememberSwipeState
+import kotlinx.coroutines.launch
 
 @Composable
 fun SwipeTest() {
@@ -34,6 +36,7 @@ fun SwipeTest() {
         mutableStateOf(false)
     }
     val state = rememberSwipeState()
+    val scope = rememberCoroutineScope()
     LazyColumn(
         Modifier.padding(10.dp), verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
@@ -168,10 +171,12 @@ fun SwipeTest() {
                     rightComponent = {
                         Switch(checked = checked, onCheckedChange = {
                             checked = it
-                            if (it) {
-                                state.open()
-                            } else {
-                                state.close()
+                            scope.launch {
+                                if (it) {
+                                    state.open()
+                                } else {
+                                    state.close()
+                                }
                             }
                         })
                     },

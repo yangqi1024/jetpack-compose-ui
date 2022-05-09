@@ -21,6 +21,7 @@
 ## 🔗 链接 
 
 - [ActionSheet](#ActionSheet)
+- [AddressList](#AddressList)
 - [AnnotatedText](#AnnotatedText)
 - [Banner](#Banner)
 - [Cell](#Cell)
@@ -52,6 +53,12 @@ ActionSheet
 Name | 截图
 --- | ---
 ActionSheet| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/actionsheet/screenshot.jpg" width="324" height="702">
+
+AddressList
+======================
+Name | 截图
+--- | ---
+AddressList| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/addresslist/screenshot.jpg" width="324" height="702">
 
 AnnotatedText
 ======================
