@@ -175,19 +175,3 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    CUITestTheme {
-        Surface(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(color = MaterialTheme.colors.background),
-            color = MaterialTheme.colors.background
-        ) {
-
-                BannerTest()
-        }
-    }
-}

@@ -2,17 +2,10 @@ package cn.idesign.cui.testclient.actionsheet
 
 import android.content.Context
 import android.widget.Toast
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Divider
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.ListItem
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -27,6 +20,7 @@ import cn.idesign.cui.actionsheet.GridSheet
 import cn.idesign.cui.actionsheet.GridSheetItem
 import cn.idesign.cui.bottomsheet.BottomSheetState
 import cn.idesign.cui.bottomsheet.rememberBottomSheetState
+import cn.idesign.cui.cell.Cell
 import cn.idesign.cui.testclient.R
 import kotlinx.coroutines.launch
 
@@ -47,94 +41,55 @@ fun ActionSheetTest() {
         modifier = Modifier
             .fillMaxSize(),
     ) {
-        ListItem(
-            text = { Text("基本用法") },
-            modifier = Modifier
-                .height(50.dp)
-                .background(MaterialTheme.colors.surface)
-                .clickable {
-                    scope.launch {
-                        simpleState.show()
-                    }
-                }
-        )
-        Divider()
-        ListItem(
-            text = { Text("文本居左") },
-            modifier = Modifier
-                .height(50.dp)
-                .background(MaterialTheme.colors.surface)
-                .clickable {
-                    scope.launch {
-                        leftState.show()
-                    }
-                }
 
-        )
-        Divider()
-        ListItem(
-            text = { Text("包含标题") },
-            modifier = Modifier
-                .height(50.dp)
-                .background(MaterialTheme.colors.surface)
-                .clickable {
-                    scope.launch {
-                        titleState.show()
-                    }
+        Cell(
+            text = "基本用法", showDivider = true, onClick = {
+                scope.launch {
+                    simpleState.show()
                 }
-
+            }
         )
-        Divider()
-        ListItem(
-            text = { Text("包含取消按钮") },
-            modifier = Modifier
-                .height(50.dp)
-                .background(MaterialTheme.colors.surface)
-                .clickable {
-                    scope.launch {
-                        cancelState.show()
-                    }
+        Cell(
+            text = "文本居左", showDivider = true, onClick = {
+                scope.launch {
+                    leftState.show()
                 }
-
+            }
         )
-        Divider()
-        ListItem(
-            text = { Text("包含描述") },
-            modifier = Modifier
-                .height(50.dp)
-                .background(MaterialTheme.colors.surface)
-                .clickable {
-                    scope.launch {
-                        descriptionState.show()
-                    }
+        Cell(
+            text = "包含标题", showDivider = true, onClick = {
+                scope.launch {
+                    titleState.show()
                 }
-
+            }
         )
-        Divider()
-        ListItem(
-            text = { Text("自定义颜色") },
-            modifier = Modifier
-                .height(50.dp)
-                .background(MaterialTheme.colors.surface)
-                .clickable {
-                    scope.launch {
-                        colorState.show()
-                    }
+        Cell(
+            text = "包含取消按钮", showDivider = true, onClick = {
+                scope.launch {
+                    cancelState.show()
                 }
-
+            }
         )
-        Divider()
-        ListItem(
-            text = { Text("Gird分享") },
-            modifier = Modifier
-                .height(50.dp)
-                .background(MaterialTheme.colors.surface)
-                .clickable {
-                    scope.launch {
-                        gridState.show()
-                    }
+        Cell(
+            text = "包含描述", showDivider = true, onClick = {
+                scope.launch {
+                    descriptionState.show()
                 }
-
+            }
+        )
+        Cell(
+            text = "自定义颜色", showDivider = true, onClick = {
+                scope.launch {
+                    colorState.show()
+                }
+            }
+        )
+        Cell(
+            text = "Gird分享", onClick = {
+                scope.launch {
+                    gridState.show()
+                }
+            }
         )
     }
 
