@@ -50,6 +50,7 @@ implementation 'cn.itpiggy:compose-ui:1.0.0'
 - [SearchBar](#SearchBar)
 - [Segmented](#Segmented)
 - [SelectCity](#SelectCity)
+- [SignaturePad](#SignaturePad)
 - [Skeleton](#Skeleton)
 - [StatefulLayout](#StatefulLayout)
 - [Stepper](#Stepper)
@@ -167,6 +168,12 @@ SelectCity
 Name | 截图
 --- | ---
 SelectCity| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/selectcity/screenshot.jpg" width="324" height="702">
+
+SignaturePad
+======================
+Name | 截图
+--- | ---
+SignaturePad| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/signaturepad/screenshot.jpg" width="324" height="702">
 
 Skeleton
 ======================
