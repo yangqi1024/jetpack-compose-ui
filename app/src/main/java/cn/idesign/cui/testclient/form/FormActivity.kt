@@ -1,4 +1,4 @@
-package cn.idesign.cui.testclient.actionsheet
+package cn.idesign.cui.testclient.form
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,12 +8,10 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import cn.idesign.cui.testclient.ui.theme.CUITestTheme
 
-class ActionSheetActivity : ComponentActivity() {
+class FormActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -23,7 +21,7 @@ class ActionSheetActivity : ComponentActivity() {
                         TopAppBar(
                             title = {
                                 Text(
-                                    text = "ActionSheet示例",
+                                    text = "Form示例",
                                     color = MaterialTheme.colors.onPrimary
                                 )
                             },
@@ -32,32 +30,9 @@ class ActionSheetActivity : ComponentActivity() {
                     },
                     modifier = Modifier.fillMaxSize()
                 ) {
-                        ActionSheetTest()
+                        FormTest()
                 }
             }
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    CUITestTheme {
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    title = {
-                        Text(
-                            text = "ActionSheet示例",
-                            color = MaterialTheme.colors.onPrimary
-                        )
-                    },
-                    backgroundColor = MaterialTheme.colors.primary,
-                )
-            },
-            modifier = Modifier.fillMaxSize()
-        ) {
-            ActionSheetTest()
         }
     }
 }

@@ -30,9 +30,9 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun Preview(
+    modifier: Modifier = Modifier,
     data: List<PreviewItem>,
     initialPage: Int = 0,
-    modifier: Modifier = Modifier,
     onClose: (() -> Unit)? = null,
     state: ModalState = rememberModalState()
 ) {
@@ -53,6 +53,7 @@ fun Preview(
             modifier = Modifier
                 .fillMaxSize()
                 .background(Color.Black)
+                .then(modifier)
         ) {
             val (tip, close, banner) = createRefs()
             Banner(

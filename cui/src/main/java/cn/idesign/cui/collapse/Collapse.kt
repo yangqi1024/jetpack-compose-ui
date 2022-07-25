@@ -63,7 +63,7 @@ fun Collapse(
 }
 
 fun checkOpen(activeKeys: List<String>, key: String, accordion: Boolean): Boolean {
-    if (activeKeys.isNullOrEmpty()) {
+    if (activeKeys.isEmpty()) {
         return false
     }
     if (accordion) {
