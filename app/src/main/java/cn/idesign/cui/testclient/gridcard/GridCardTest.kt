@@ -92,9 +92,13 @@ fun GridCardTest() {
                 color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
                 style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
-            GridCard(data = commonData, title = "我的收藏", count = 3, onItemClick = {
-                Toast.makeText(context, "点击了：${it.text}", Toast.LENGTH_SHORT).show()
-            })
+            GridCard(
+                data = commonData,
+                title = "我的收藏",
+                count = 3,
+                onItemClick = { model: GridCardModel, _: Int ->
+                    Toast.makeText(context, "点击了：${model.text}", Toast.LENGTH_SHORT).show()
+                })
         }
     }
 }

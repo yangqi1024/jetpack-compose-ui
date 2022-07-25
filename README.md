@@ -36,6 +36,7 @@ implementation 'cn.itpiggy:compose-ui:1.0.0'
 - [AddressList](#AddressList)
 - [AnnotatedText](#AnnotatedText)
 - [Banner](#Banner)
+- [Category](#Category)
 - [Cell](#Cell)
 - [Collapse](#Collapse)
 - [Curtain](#Curtain)
@@ -84,6 +85,12 @@ Banner
 Name | 截图
 --- | ---
 Banner| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/banner/screenshot.jpg" width="324" height="702">
+
+Category
+======================
+Name | 截图
+--- | ---
+Category| <img src="https://cdn.jsdelivr.net/gh/yangqi1024/pic-repo/Cui/category/screenshot.jpg" width="324" height="702">
 
 Cell
 ======================
