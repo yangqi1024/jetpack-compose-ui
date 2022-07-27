@@ -1,6 +1,7 @@
 buildscript {
     ext {
         compose_version = '1.1.1'
+        accompanist_version = '0.24.13-rc'
     }
 
     repositories {

@@ -2,88 +2,68 @@ package cn.idesign.cui.testclient
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.os.Bundle
 import android.util.Log
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.material.*
+import androidx.compose.material.Card
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import cn.idesign.cui.testclient.banner.BannerTest
-import cn.idesign.cui.testclient.ui.theme.CUITestTheme
 import java.text.Collator
 import java.util.*
 
-class MainActivity : ComponentActivity() {
+class MainActivity : BaseActivity() {
+
     @OptIn(ExperimentalMaterialApi::class)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            CUITestTheme {
-                Scaffold(
-                    topBar = {
-                        TopAppBar(
-                            title = { Text(
-                                text ="Compose UI Design",
-                                color = MaterialTheme.colors.onPrimary
-                            ) },
-                            backgroundColor = MaterialTheme.colors.primary,
-                        )
-                    },
-                    modifier = Modifier.fillMaxSize()
-                ) {
-                    Surface {
-                        val list = getData(intent.getStringExtra(EXTRA_PATH))
-                        Log.d("MainActivity", "list:${list}")
-                        LazyVerticalGrid(
-                            columns = GridCells.Fixed(2),
-                            // content padding
-                            contentPadding = PaddingValues(
-                                start = 12.dp,
-                                top = 16.dp,
-                                end = 12.dp,
-                                bottom = 16.dp
-                            ),
-                            content = {
-                                items(list.size) { index ->
-                                    Card(
-                                        modifier = Modifier
-                                            .padding(4.dp)
-                                            .fillMaxWidth(),
-                                        onClick = {
-                                            val intent = list[index].get("intent") as Intent
-                                            startActivity(intent)
-                                        }
-                                    ) {
-                                        Text(
-                                            text = list[index].get("title").toString(),
-                                            fontWeight = FontWeight.Bold,
-                                            fontSize = 14.sp,
-                                            color = MaterialTheme.colors.onSurface,
-                                            textAlign = TextAlign.Center,
-                                            modifier = Modifier.padding(horizontal = 8.dp,vertical = 16.dp)
-                                        )
-                                    }
-                                }
-                            }
+    @Composable
+    override fun Render() {
+        val list = getData(intent.getStringExtra(EXTRA_PATH))
+        Log.d("MainActivity", "list:${list}")
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
+            // content padding
+            contentPadding = PaddingValues(
+                start = 12.dp,
+                top = 16.dp,
+                end = 12.dp,
+                bottom = 16.dp
+            ),
+            content = {
+                items(list.size) { index ->
+                    Card(
+                        modifier = Modifier
+                            .padding(4.dp)
+                            .fillMaxWidth(),
+                        onClick = {
+                            val intent = list[index].get("intent") as Intent
+                            startActivity(intent)
+                        }
+                    ) {
+                        Text(
+                            text = list[index].get("title").toString(),
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 14.sp,
+                            color = MaterialTheme.colors.onSurface,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 16.dp)
                         )
                     }
                 }
             }
-        }
+        )
     }
+
+    override fun title(): String = "Compose UI Design"
+
 
     private fun getData(prefix: String?): List<Map<String, Any>> {
         val myData = ArrayList<Map<String, Any>>()

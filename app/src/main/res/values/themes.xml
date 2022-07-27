@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="Theme.CUI" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:statusBarColor">@color/blue_700</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
     </style>
 </resources>

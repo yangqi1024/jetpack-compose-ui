@@ -1,39 +1,14 @@
 package cn.idesign.cui.testclient.privacypolicy
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
-import androidx.compose.ui.Modifier
-import cn.idesign.cui.testclient.ui.theme.CUITestTheme
+import androidx.compose.runtime.Composable
+import cn.idesign.cui.testclient.BaseActivity
 
-class PrivacyPolicyActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            CUITestTheme {
-                Scaffold(
-                    topBar = {
-                        TopAppBar(
-                            title = {
-                                Text(
-                                    text = "PrivacyPolicy示例",
-                                    color = MaterialTheme.colors.onPrimary
-                                )
-                            },
-                            backgroundColor = MaterialTheme.colors.primary,
-                        )
-                    },
-                    modifier = Modifier.fillMaxSize()
-                ) {
-                    PrivacyPolicyTest()
-                }
-            }
-        }
+class PrivacyPolicyActivity : BaseActivity() {
+
+    @Composable
+    override fun Render() {
+        PrivacyPolicyTest()
     }
+
+    override fun title(): String = "PrivacyPolicy示例"
 }
