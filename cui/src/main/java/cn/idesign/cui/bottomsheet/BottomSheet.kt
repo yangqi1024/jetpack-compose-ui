@@ -44,7 +44,7 @@ fun rememberBottomSheetState(
 }
 
 @OptIn(ExperimentalMaterialApi::class)
-class BottomSheetState(
+open class BottomSheetState(
     val initialValue: BottomSheetValue,
 ) {
 
