@@ -31,6 +31,7 @@ implementation 'cn.itpiggy:compose-ui:1.0.0'
 
 - 开箱即用的高质量 Compose 组件
 - 提供满足业务差异的主题定制能力
+- 支持多种主题切换
 
 ## 🔗 链接
 
