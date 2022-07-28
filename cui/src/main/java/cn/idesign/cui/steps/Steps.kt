@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.Icon
+import androidx.compose.material.LocalAbsoluteElevation
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
@@ -29,6 +30,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.graphics.takeOrElse
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
@@ -42,6 +44,7 @@ import androidx.constraintlayout.compose.Visibility
 import cn.idesign.cui.annotatedtext.AnnotatedAction
 import cn.idesign.cui.annotatedtext.AnnotatedText
 import cn.idesign.cui.common.Direction
+import cn.idesign.cui.utils.calculateForegroundColor
 
 @SuppressLint("RememberReturnType")
 @Composable
@@ -338,7 +341,12 @@ fun StepIcon(
         targetValue = when (status) {
             StepStatus.Finish -> MaterialTheme.colors.primary
             StepStatus.Error -> MaterialTheme.colors.error
-            StepStatus.Wait -> MaterialTheme.colors.onSurface.copy(0.12f)
+            StepStatus.Wait -> {
+                val backgroundColor = MaterialTheme.colors.surface
+                val absoluteElevation = LocalAbsoluteElevation.current + 1.dp
+                val foregroundColor = calculateForegroundColor(backgroundColor, absoluteElevation)
+                foregroundColor.compositeOver(backgroundColor)
+            }
             StepStatus.Process -> MaterialTheme.colors.primary
         }
     )
@@ -368,7 +376,7 @@ fun StepIcon(
                     )
                     StepStatus.Wait -> Text(
                         text = index.toString(),
-                        color = MaterialTheme.colors.surface,
+                        color = MaterialTheme.colors.onSurface,
                         style = MaterialTheme.typography.body2.copy(fontSize = 12.sp)
                     )
                     StepStatus.Process -> Text(

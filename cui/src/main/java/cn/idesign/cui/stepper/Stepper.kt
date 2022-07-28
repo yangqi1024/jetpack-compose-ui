@@ -12,6 +12,7 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.Icon
+import androidx.compose.material.LocalAbsoluteElevation
 import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
@@ -26,10 +27,13 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import cn.idesign.cui.utils.calculateForegroundColor
 
 @Composable
 fun Stepper(
@@ -42,8 +46,11 @@ fun Stepper(
     step: Int = 1,
     inputReadOnly: Boolean = false,
     disable: Boolean = false,
+    backgroundColor: Color = MaterialTheme.colors.surface,
 ) {
-
+    val absoluteElevation = LocalAbsoluteElevation.current + 1.dp
+    val foregroundColor = calculateForegroundColor(backgroundColor, absoluteElevation)
+    val _backgroundColor = foregroundColor.compositeOver(backgroundColor)
     Row(
         modifier = modifier,
     ) {
@@ -68,14 +75,15 @@ fun Stepper(
             value = state.currentValue.toString(),
             modifier = Modifier
                 .size(inputWidth, height)
-                .background(MaterialTheme.colors.background)
+                .background(_backgroundColor)
                 .alpha(if (!disable) ContentAlpha.high else ContentAlpha.disabled)
                 .wrapContentHeight(),
             onValueChange = { value ->
                 state.currentValue = value.toInt().coerceIn(min, max)
             },
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.NumberPassword),
-            textStyle = LocalTextStyle.current.copy(textAlign = TextAlign.Center),
+            textStyle = LocalTextStyle.current.copy(textAlign = TextAlign.Center)
+                .copy(color = MaterialTheme.colors.onSurface),
             maxLines = 1,
             singleLine = true,
             readOnly = inputReadOnly,

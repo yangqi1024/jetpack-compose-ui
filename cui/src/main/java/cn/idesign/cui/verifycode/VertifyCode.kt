@@ -16,6 +16,7 @@ import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.ContentAlpha
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -62,7 +63,7 @@ fun VerifyCode(
     size: DpSize = DpSize(40.dp, 40.dp),
     lineHeight: Dp = 2.dp,
     textFontSize: TextUnit = 32.sp,
-    activeLineColor: Color = Color.Black,
+    activeLineColor: Color = MaterialTheme.colors.onSurface,
     textColor: Color = activeLineColor,
     normalLineColor: Color = activeLineColor.copy(alpha = ContentAlpha.disabled),
     cursorLineWidth: Dp = 2.dp,

@@ -1,24 +1,19 @@
 package cn.idesign.cui.testclient.privacypolicy
 
 import android.widget.Toast
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.ContentAlpha
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import cn.idesign.cui.annotatedtext.AnnotatedAction
+import cn.idesign.cui.cell.Cell
 import cn.idesign.cui.modal.rememberModalState
 import cn.idesign.cui.privacypolicy.PrivacyPolicy
 
@@ -29,18 +24,13 @@ fun PrivacyPolicyTest() {
     val context = LocalContext.current
     LazyColumn(Modifier.padding(10.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
         item {
-            Text(
-                text = "基本用法",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
-                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
+
+            Cell(
+                text = "基础用法", showDivider = true, onClick = {
+                    commonState.show()
+                }
             )
 
-            Button(onClick = { commonState.show() }) {
-                Text(text = "打开用户协议")
-            }
 
             PrivacyPolicy(
                 state = commonState,
@@ -72,19 +62,11 @@ fun PrivacyPolicyTest() {
         }
 
         item {
-            Text(
-                text = "自定义颜色",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
-                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
+            Cell(
+                text = "自定义颜色", showDivider = true, onClick = {
+                    customColorState.show()
+                }
             )
-
-            Button(onClick = { customColorState.show() }) {
-                Text(text = "自定义颜色")
-            }
-
             PrivacyPolicy(
                 state = customColorState,
                 text = "用户协议及隐私政策概要",

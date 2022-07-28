@@ -4,23 +4,17 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Button
-import androidx.compose.material.ContentAlpha
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import cn.idesign.cui.cell.Cell
 import cn.idesign.cui.modal.rememberModalState
 import cn.idesign.cui.preview.Preview
 import cn.idesign.cui.preview.PreviewActivity
@@ -40,51 +34,25 @@ fun PreviewTest() {
     val context = LocalContext.current
     LazyColumn(Modifier.padding(10.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
         item {
-            Text(
-                text = "基础用法",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
-                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
+            Cell(
+                text = "基础用法", showDivider = true, onClick = {
+                    commonState.show()
+                }
             )
-            Button(onClick = {
-                commonState.show()
-//                startToPreviewActivity(context = context, list)
-            }) {
-                Text(text = "预览图片")
-            }
         }
         item {
-            Text(
-                text = "指定初始位置",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
-                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
+            Cell(
+                text = "指定初始位置", showDivider = true, onClick = {
+                    customInitState.show()
+                }
             )
-            Button(onClick = {
-                customInitState.show()
-//                startToPreviewActivity(context = context, list, 2)
-            }) {
-                Text(text = "指定初始位置")
-            }
         }
         item {
-            Text(
-                text = "打开新的Activity",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
-                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
+            Cell(
+                text = "打开新的Activity", showDivider = true, onClick = {
+                    startToPreviewActivity(context = context, list)
+                }
             )
-            Button(onClick = {
-                startToPreviewActivity(context = context, list)
-            }) {
-                Text(text = "打开新的Activity")
-            }
         }
     }
 

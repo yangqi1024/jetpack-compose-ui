@@ -22,6 +22,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
+import cn.idesign.cui.cell.Cell
 import cn.idesign.cui.curtain.Curtain
 import cn.idesign.cui.curtain.CurtainAlignment
 import cn.idesign.cui.curtain.CurtainModel
@@ -29,6 +30,7 @@ import cn.idesign.cui.modal.rememberModalState
 import com.google.accompanist.flowlayout.FlowRow
 import com.google.accompanist.flowlayout.MainAxisAlignment
 import com.google.accompanist.flowlayout.SizeMode
+import kotlinx.coroutines.launch
 
 @SuppressLint("UnrememberedMutableState", "RememberReturnType")
 @Composable
@@ -44,51 +46,26 @@ fun CurtainTest() {
 
     LazyColumn(Modifier.padding(10.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
         item {
-            Text(
-                text = "基础用法",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
-                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
+            Cell(
+                text = "基本用法", showDivider = true, onClick = {
+                    commonState.show()
+                }
             )
-            Button(onClick = {
-                commonState.show()
-            }) {
-                Text(text = "底部居中")
-            }
         }
         item {
-            Text(
-                text = "多张图片",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
-                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
+            Cell(
+                text = "多张图片", showDivider = true, onClick = {
+                    multiState.show()
+                }
             )
-            Button(onClick = {
-                multiState.show()
-            }) {
-                Text(text = "多张图片")
-            }
         }
 
         item {
-            Text(
-                text = "自定义大小",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 5.dp),
-                color = MaterialTheme.colors.onSurface.copy(ContentAlpha.high),
-                style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
+            Cell(
+                text = "自定义大小", showDivider = true, onClick = {
+                    customSizeState.show()
+                }
             )
-            Button(onClick = {
-                customSizeState.show()
-            }) {
-                Text(text = "自定义大小")
-            }
-
         }
 
         item {

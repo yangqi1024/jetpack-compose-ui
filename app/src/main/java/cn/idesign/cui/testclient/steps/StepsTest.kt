@@ -108,7 +108,7 @@ fun StepsTest() {
                 state = stepState,
                 data = horizontalData,
                 direction = Direction.Horizontal,
-                modifier = Modifier.fillMaxWidth().background(Color.White)
+                modifier = Modifier.fillMaxWidth().background(MaterialTheme.colors.surface)
             )
 
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
@@ -133,7 +133,7 @@ fun StepsTest() {
                 style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
             Steps(
-                modifier = Modifier.background(Color.White),
+                modifier = Modifier.background(MaterialTheme.colors.surface),
                 state = verticaStepState,
                 data = verticalData
             )
@@ -168,7 +168,7 @@ fun StepsTest() {
                 style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Medium)
             )
             Steps(
-                modifier = Modifier.background(Color.White),
+                modifier = Modifier.background(MaterialTheme.colors.surface),
                 data = logisticsData,
                 annotatedAction = listOf(AnnotatedAction("1[3-9][0-9]{9}") { tag ->
                     val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:${tag}"))
